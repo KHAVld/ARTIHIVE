@@ -8,6 +8,7 @@
 # ARTIHIVE 2.0.0
 
 ARTIHIVE is an experimental eight-voice drone and polyphonic synthesizer firmware for the **M-VAVE FM-1**. It combines evolving FM textures, long envelopes, stereo motion, modulated delay, distortion, compression, mutation and exact-tempo arpeggiation in a compact performance instrument.
+Artihive is artistically inspired by the experimental sound philosophy and hands-on approach of the SOMA Laboratory LYRA-8. It is an independent project and is not affiliated with, endorsed by, or derived from SOMA Laboratory. No SOMA software, firmware, schematics, branding, or other proprietary materials are used.
 
 ## Main features
 
