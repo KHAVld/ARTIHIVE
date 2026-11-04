@@ -51,15 +51,7 @@ POLY intentionally has no drones, latches, PLAY drones or HOLD floor. Note level
 - Chromatic POLY allocation applies to the physical keyboard.
 - Outgoing POLY key events use their true note numbers with velocity 127.
 
-## Installation
 
-1. Keep a copy of the factory firmware available.
-2. Open the included `install.html` in a Chromium-based browser with WebMIDI support.
-3. Connect the FM-1 by USB.
-4. Select `artihive-2.0.0.fwsc`.
-5. Do not disconnect power or USB until verification is complete.
-
-Detailed installation, recovery, operation and MIDI information is available in the English and Russian PDF manuals.
 
 ## Physical-device status
 
