@@ -1,0 +1,7 @@
+{
+  "what": "An eight-voice drone and polyphonic synthesizer with a full 27-key chromatic keyboard, evolving FM pairs, global or per-voice envelopes, Hyper LFO, stereo motion, modulated delay, distortion, compression, mutation and exact 10–400 BPM arpeggiation.",
+  "author": "KHAV",
+  "kinds": ["synth"],
+  "image": "docs/card.png",
+  "color": "#F06F9D"
+}
