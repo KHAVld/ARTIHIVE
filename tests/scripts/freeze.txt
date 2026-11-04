@@ -1,0 +1,7 @@
+# Physical SCL is BTN_SEL: freeze existing delay without changing page or selected voice.
+200 btn 12
+800 btn 3
+1000 shot
+1400 btn 3
+1600 shot
+2000 end

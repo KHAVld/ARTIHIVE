@@ -1,0 +1,11 @@
+# Enter second HOME tab, play white and black physical keys chromatically.
+100 btn 8
+300 btn 8
+500 shot
+700 keys 1
+900 keys 3
+1200 shot
+1500 keys 2
+1800 keys 0
+2400 shot
+2800 end

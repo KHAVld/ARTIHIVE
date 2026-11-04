@@ -1,0 +1,27 @@
+# A tour of ARTIHIVE: organ, drones, FM, the delay played by itself
+# DRONE MASS is the preset at power-on
+500 keys 0x0000001
+1500 keys 0x0000005
+2500 keys 0x0000055
+3500 keys 0x0000555
+4500 keys 0x0005555
+5500 keys 0x0000000
+6000 btn 12
+6500 shot
+9000 enc 6 1
+9200 btn 12
+12000 enc 6 1
+12200 btn 12
+15000 shot
+17000 enc 6 1
+17200 btn 12
+20000 btn 5
+20500 enc 2 30
+22000 enc 3 25
+24000 shot
+26000 btn 12
+26500 enc 6 6
+26700 btn 12
+30000 shot
+33000 btn 12
+34000 end

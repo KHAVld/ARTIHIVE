@@ -1,0 +1,11 @@
+# Native LFO SPACE lanes in ALL, PAIR and ALT.
+200 btn 12
+500 btn 5
+800 btn 5
+1000 enc 2 90
+1400 shot
+1800 enc 5 1
+2200 shot
+2600 enc 5 1
+3000 shot
+3400 end

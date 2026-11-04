@@ -1,0 +1,29 @@
+# English regression descriptionINIT (HOLD=0), English regression description
+# English regression description
+200 btn 8
+400 enc 6 15
+600 btn 2
+800 enc 5 -127
+1000 btn 8
+1100 btn 12
+1120 btn 12
+1200 keys 0x0000001
+1500 shot
+1700 shot
+1900 keys 0x0000000
+1950 shot
+2000 shot
+2050 shot
+2100 shot
+2150 shot
+2200 shot
+2250 shot
+2300 shot
+2400 shot
+2500 shot
+2600 shot
+2700 shot
+2800 shot
+3000 shot
+3200 shot
+3400 end

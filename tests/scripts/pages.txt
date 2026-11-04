@@ -1,0 +1,18 @@
+# One screenshot of each page on the FM-1, with drones sounding
+# FM-1 buttons: PLAY 12, HOME 8, EDIT 6, ENV 4, LFO 5, FX 2, GLO 7
+200 btn 12
+600 btn 8
+1000 shot
+1400 btn 6
+1800 shot
+2200 btn 4
+2600 shot
+3000 btn 5
+3400 shot
+3800 btn 2
+4200 shot
+4600 btn 2
+5000 shot
+5400 btn 7
+5800 shot
+6200 end

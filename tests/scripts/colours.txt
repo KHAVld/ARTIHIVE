@@ -1,0 +1,38 @@
+# All twelve colourways; hold ARP (>0.7 s) for the next theme.
+200 btn 12
+600 btn 8
+1000 shot
+1100 btndown 10
+1900 btnup 10
+2100 shot
+2200 btndown 10
+3000 btnup 10
+3200 shot
+3300 btndown 10
+4100 btnup 10
+4300 shot
+4400 btndown 10
+5200 btnup 10
+5400 shot
+5500 btndown 10
+6300 btnup 10
+6500 shot
+6600 btndown 10
+7400 btnup 10
+7600 shot
+7700 btndown 10
+8500 btnup 10
+8700 shot
+8800 btndown 10
+9600 btnup 10
+9800 shot
+9900 btndown 10
+10700 btnup 10
+10900 shot
+11000 btndown 10
+11800 btnup 10
+12000 shot
+12100 btndown 10
+12900 btnup 10
+13100 shot
+13400 end

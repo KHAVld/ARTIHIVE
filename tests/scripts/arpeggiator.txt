@@ -1,0 +1,18 @@
+# Load INIT (HOLD zero), open ARPEGGIATOR with short ARP, edit, then run/stop with contextual PLAY.
+100 midi 192 15 0
+300 btn 10
+600 shot
+800 enc 2 30
+900 enc 3 -3
+1000 enc 4 85
+1100 enc 5 2
+1300 shot
+1500 btndown 12
+1600 btnup 12
+1700 shot
+1900 shot
+2100 shot
+2400 btndown 12
+2500 btnup 12
+2600 shot
+2900 end

@@ -1,0 +1,35 @@
+# English regression descriptionMOD DEL, English regression description
+# FX = btn 2, English regression descriptionPRESETS = 6
+200 btn 2
+1000 shot
+1200 enc 6 1
+1400 shot
+1600 enc 6 1
+1800 shot
+2000 enc 6 1
+2200 shot
+2400 enc 6 1
+2600 shot
+2800 enc 6 1
+3000 shot
+3200 enc 6 1
+3400 shot
+3600 enc 6 1
+3800 shot
+4000 enc 6 1
+4200 shot
+4400 enc 6 1
+4600 shot
+4800 enc 6 1
+5000 shot
+5200 enc 6 1
+5400 shot
+5600 enc 6 1
+5800 shot
+6000 enc 6 1
+6200 shot
+6400 enc 6 1
+6600 shot
+6800 enc 6 1
+7000 shot
+7400 end

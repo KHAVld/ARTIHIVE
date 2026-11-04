@@ -1,0 +1,44 @@
+# every factory preset with all drones latched, then extreme sweeps: nothing may run away
+200 btn 12
+400 enc 6 1
+500 btn 12
+900 enc 6 1
+1000 btn 12
+1400 enc 6 1
+1500 btn 12
+1900 enc 6 1
+2000 btn 12
+2400 enc 6 1
+2500 btn 12
+2900 enc 6 1
+3000 btn 12
+3400 enc 6 1
+3500 btn 12
+3900 enc 6 1
+4000 btn 12
+4400 enc 6 1
+4500 btn 12
+4900 enc 6 1
+5000 btn 12
+5400 enc 6 1
+5500 btn 12
+5900 enc 6 1
+6000 btn 12
+6400 btn 6
+6600 enc 2 127
+6800 enc 3 127
+7000 enc 4 127
+7200 enc 5 127
+7400 btn 2
+7600 enc 2 127
+7800 enc 3 127
+8000 enc 4 127
+8200 enc 5 127
+8400 btn 7
+8600 enc 2 127
+8800 enc 3 127
+9000 enc 4 127
+9200 enc 5 127
+9400 shot
+9800 btn 12
+10200 end

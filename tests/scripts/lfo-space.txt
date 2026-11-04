@@ -1,0 +1,11 @@
+# Open HYPER LFO, press LFO again for LFO SPACE, then set WIDTH/SOURCE/DIR/MODE.
+200 btn 12
+500 btn 5
+800 btn 5
+1000 shot
+1200 enc 2 90
+1400 enc 3 2
+1600 enc 4 1
+1800 enc 5 1
+2200 shot
+2600 end

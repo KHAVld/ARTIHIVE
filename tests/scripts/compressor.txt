@@ -1,0 +1,11 @@
+100 btn 12
+300 btn 7
+500 btn 7
+700 enc 2 -47
+800 enc 3 64
+900 enc 4 40
+1000 enc 5 20
+1200 btndown 12
+2800 btnup 12
+3000 shot
+3200 end

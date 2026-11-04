@@ -1,0 +1,23 @@
+# ARTIHIVE: the eight sensors, one after another, then drones and the delay
+300 shot
+600 keys 0x0000001
+1000 shot
+1400 keys 0x0000005
+2200 keys 0x0000015
+3000 keys 0x0000155
+3800 shot
+4600 keys 0x0001555
+5400 keys 0x0015555
+6200 keys 0x0000000
+7000 keys 0x0040000
+7600 shot
+8200 keys 0x4000000
+9000 keys 0x0000000
+9200 btn 12
+9600 shot
+11000 enc 4 20
+12000 enc 5 -14
+13000 shot
+14000 btn 12
+14500 shot
+15000 end

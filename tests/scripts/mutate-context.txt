@@ -1,0 +1,13 @@
+# Context mutation on ENVELOPE: short one-control, undo, then long whole-page.
+200 btn 4
+500 shot
+700 btn 11
+1000 shot
+1200 btndown 9
+1300 btn 11
+1500 btnup 9
+1800 shot
+2100 btndown 11
+3000 btnup 11
+3300 shot
+3700 end

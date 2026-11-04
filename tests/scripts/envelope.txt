@@ -1,0 +1,14 @@
+# English regression descriptionINIT, English regression descriptionREL=0 (English regression description
+# ATK=0. English regression description
+200 btn 8
+400 enc 6 15
+600 btn 2
+800 enc 5 -127
+1000 btn 4
+1200 enc 3 -127
+1400 enc 5 -127
+1500 btn 12
+1520 btn 12
+1600 keys 0x0000001
+2200 keys 0x0000000
+11500 end

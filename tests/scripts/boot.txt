@@ -1,0 +1,10 @@
+# Production-length boot: themed screen, parameter checks and progress; exact silence until PLAY.
+100 shot
+900 shot
+1800 shot
+3000 shot
+3900 shot
+4300 shot
+4700 btn 12
+5200 shot
+6500 end

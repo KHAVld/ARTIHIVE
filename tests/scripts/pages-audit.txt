@@ -1,0 +1,23 @@
+# Layout-reference pages cycle from startup index 7 to untextured Deep Blue index 0.
+100 btn 11
+300 btn 11
+500 btn 11
+700 btn 11
+900 btn 11
+1100 btn 11
+1200 btn 12
+1600 btn 8
+2000 shot
+2400 btn 6
+2800 shot
+3200 btn 4
+3600 shot
+4000 btn 5
+4400 shot
+4800 btn 2
+5200 shot
+5600 btn 2
+6000 shot
+6400 btn 7
+6800 shot
+7200 end
