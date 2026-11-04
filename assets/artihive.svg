@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <!-- ARTIHIVE full mark: original couplings, closed outer contour, and common centre. GPL-3.0-only. -->
+  <circle cx="48" cy="48" r="44" fill="#1a8bd7"/>
+  <g stroke="#bee0f6" stroke-width="2" fill="none" stroke-linejoin="round">
+    <path d="M48 12 84 48 48 84 12 48Z"/>
+    <path d="M72 24 72 72 24 72 24 24Z"/>
+    <path d="M48 12 72 24 84 48 72 72 48 84 24 72 12 48 24 24Z"/>
+    <path d="M48 48 48 12 M48 48 72 24 M48 48 84 48 M48 48 72 72
+             M48 48 48 84 M48 48 24 72 M48 48 12 48 M48 48 24 24"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="48" cy="12" r="4"/><circle cx="72" cy="24" r="4"/>
+    <circle cx="84" cy="48" r="4"/><circle cx="72" cy="72" r="4"/>
+    <circle cx="48" cy="84" r="4"/><circle cx="24" cy="72" r="4"/>
+    <circle cx="12" cy="48" r="4"/><circle cx="24" cy="24" r="4"/>
+    <circle cx="48" cy="48" r="4"/>
+  </g>
+</svg>
