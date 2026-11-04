@@ -1,3 +1,10 @@
+<img width="240" height="240" alt="loading" src="https://github.com/user-attachments/assets/a5ac49eb-ac11-4dca-a504-801b54bfab9e" />
+<img width="240" height="240" alt="drone" src="https://github.com/user-attachments/assets/26d97bfd-9c01-470f-84ce-f4ef8ce3e419" />
+<img width="240" height="240" alt="arpeggio" src="https://github.com/user-attachments/assets/fc153ec7-065c-4202-bc78-d8e89826a974" />
+<img width="240" height="240" alt="hyper-lfo" src="https://github.com/user-attachments/assets/4ab6cf19-9aab-4890-84de-9bf41d1c47c3" />
+<img width="240" height="240" alt="output" src="https://github.com/user-attachments/assets/1280812a-6d5b-4a09-8372-82eee119425c" />
+<img width="240" height="240" alt="out-comp" src="https://github.com/user-attachments/assets/8172a7e6-4234-476d-a7f9-12f1b5ed7ba2" />
+
 # ARTIHIVE 2.0.0
 
 ARTIHIVE is an experimental eight-voice drone and polyphonic synthesizer firmware for the **M-VAVE FM-1**. It combines evolving FM textures, long envelopes, stereo motion, modulated delay, distortion, compression, mutation and exact-tempo arpeggiation in a compact performance instrument.
