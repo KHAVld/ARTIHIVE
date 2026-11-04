@@ -1,45 +1,91 @@
 # ARTIHIVE 2.0.0
 
-ARTIHIVE is an independent eight-voice drone and polyphonic synthesizer firmware for the M-VAVE FM-1. It uses integer DSP on the JieLi AC791N and provides eight evolving FM voices, a 27-key chromatic POLY mode, Hyper LFO, stereo motion, modulated delay, distortion, output compression, mutation, presets and 10–400 BPM arpeggiation.
+ARTIHIVE is an experimental eight-voice drone and polyphonic synthesizer firmware for the **M-VAVE FM-1**. It combines evolving FM textures, long envelopes, stereo motion, modulated delay, distortion, compression, mutation and exact-tempo arpeggiation in a compact performance instrument.
 
-## Instrument modes
+## Main features
 
-- **DRONE:** eight lower keys trigger eight independently tuned voices; the keys are envelope sensors rather than pitch keys. The upper row controls voice latches.
-- **POLY:** all 27 keys form a chromatic keyboard. Eight voices use oldest-note stealing. Note level is fixed at 127; HOLD and drone latches are inactive.
+- Separate **DRONE** and **POLY** modes.
+- Eight oscillator voices arranged as four interacting FM pairs.
+- Full 27-key chromatic POLY keyboard, including black-key semitones.
+- Eight-voice allocation with oldest-note stealing.
+- ROOT, global SHARP, DETUNE and global MOD controls in POLY.
+- Global envelope editing when no key is held.
+- Hold a note while editing to change that voice's FAST, RELEASE or ATTACK independently.
+- Hyper LFO with linked operators and stereo SPACE movement.
+- Dual modulated delay with LFO and self-modulation sources.
+- Output distortion and lightweight stereo-linked compression.
+- ARPEGGIO with exact 10–400 BPM, multiple traversal orders and programmable USER steps.
+- Context-sensitive mutation with one-level undo.
+- Sixteen factory presets and eight user slots.
+- Twelve visual themes with high-contrast text and logo outlines on textured backgrounds.
 
-ARTIHIVE remains silent until PLAY is pressed. OCT minus and OCT plus move by semitones in DRONE and whole octaves in POLY.
+## DRONE mode
 
-## Build
+DRONE preserves the original ARTIHIVE performance model. The eight lower sensors trigger independently tuned voices, while latches, PLAY and HOLD can create sustained layers. OCT− and OCT+ transpose by semitones.
 
-The firmware requires the JieLi toolchain and three non-redistributable AC79 SDK artifacts. See [docs/BUILD.md](docs/BUILD.md).
+## POLY mode
+
+Press **HOME** a second time from DRONE to enter POLY. Press HOME again to return to DRONE.
+
+All 27 physical keys play chromatically. Eight notes can sound simultaneously; a ninth note steals the oldest active voice. OCT− and OCT+ move the keyboard by octaves.
+
+POLY intentionally has no drones, latches, PLAY drones or HOLD floor. Note level and outgoing velocity are fixed at 127.
+
+### POLY envelope editing
+
+- With no held key, FAST, RELEASE and ATTACK change all eight voices together.
+- While notes are held, the controls edit only the newest still-held voice.
+- HOLD remains inactive and displays `OFF`.
+
+### Current POLY boundaries
+
+- POLY settings are not stored in presets.
+- Incoming MIDI retains the compatible DRONE voice-address mapping.
+- Chromatic POLY allocation applies to the physical keyboard.
+- Outgoing POLY key events use their true note numbers with velocity 127.
+
+## Installation
+
+1. Keep a copy of the factory firmware available.
+2. Open the included `install.html` in a Chromium-based browser with WebMIDI support.
+3. Connect the FM-1 by USB.
+4. Select `artihive-2.0.0.fwsc`.
+5. Do not disconnect power or USB until verification is complete.
+
+Detailed installation, recovery, operation and MIDI information is available in the English and Russian PDF manuals.
+
+## Physical-device status
+
+The final ARTIHIVE 2.0.0 firmware has successfully started on a physical FM-1. This confirms real-device startup, but is not presented as a complete long-duration test of every function or every FM-1 hardware revision.
+
+## Package identity
+
+- Firmware version: `2.0.0`
+- Package identity: `FM-1_9620`
+- Target: M-VAVE FM-1 / JieLi AC791N
+- License: GPL-3.0-only
+
+## Release files
+
+- `artihive-2.0.0.fwsc` — ready-to-install firmware.
+- `artihive-2.0.0-src.tar.gz` — corresponding source archive.
+- `artihive-manual-en.pdf` — English manual.
+- `artihive-manual-ru.pdf` — Russian manual.
+- `install.html` — self-contained offline WebMIDI installer.
+- `RELEASE_NOTES.md` — concise release summary.
+- `SHA256SUMS` — integrity hashes for all release files.
+- `LICENSE` — GNU General Public License version 3.
+
+## Verification
+
+The release passed host integration tests, DSP tests, POLY allocation and envelope tests, MIDI and arpeggiator tests, update-loader and package checks, ASan/UBSan runs, target resource checks and a clean reproducible firmware rebuild.
+
+Verify downloaded files with:
 
 ```sh
-export JIELI_TOOLCHAIN=/path/to/jieli/toolchain
-export AC79_SDK=/path/to/fw-AC79_AIoT_SDK
-./build.sh --release 2.0.0
+sha256sum -c SHA256SUMS
 ```
 
-The release package is written to `build/artihive-2.0.0.fwsc` with identity `FM-1_9620`.
+## License
 
-## Tests
-
-```sh
-tests/run_tests.sh
-```
-
-The application and update loader accept both known 1 MiB FM-1 flash devices:
-
-- Puya P25Q80, JEDEC `0x856014`
-- UC25HQ80, JEDEC `0xB36014`
-
-Unknown flash devices are refused.
-
-## Firmware Hub metadata
-
-The repository root contains `fmhub.json`. Its square card image is `docs/card.png`.
-
-## License and provenance
-
-ARTIHIVE is GPL-3.0-only. See [LICENSE](LICENSE), [LICENSING.md](LICENSING.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [COPYRIGHT-AUDIT.md](COPYRIGHT-AUDIT.md). Bundled JieLi-derived components retain Apache-2.0 notices, and the Terminus font retains its OFL-1.1 notice.
-
-ARTIHIVE was created by KHAV with assistance from Arena.ai Agent Mode as an exploration of the FM-1 platform. Thanks to SOMA Laboratory for its approach to sound and aesthetics; LYRA-8 is acknowledged only as artistic inspiration. ARTIHIVE is independent and is not affiliated with SOMA Laboratory or M-VAVE.
+ARTIHIVE is distributed under the **GNU General Public License v3.0 only**. See `LICENSE` for the full terms.
