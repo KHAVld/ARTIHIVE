@@ -1,0 +1,5 @@
+cd C:\Users\MSI\Downloads\ARTIHIVE-2.0.0-source-en
+
+git remote add origin https://github.com/KHAVld/ARTIHIVE.git
+git push -u origin artihive-2.0
+git push origin artihive-2.0.0
