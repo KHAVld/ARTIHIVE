@@ -1,11 +1,16 @@
 <img width="640" height="320" alt="artihive-logo-640x320" src="https://github.com/user-attachments/assets/0f628029-0a1d-484b-b176-1cefe97f037b" />
 <img width="240" height="240" alt="drone" src="https://github.com/user-attachments/assets/26d97bfd-9c01-470f-84ce-f4ef8ce3e419" />
-<img width="240" height="240" alt="arpeggio" src="https://github.com/user-attachments/assets/fc153ec7-065c-4202-bc78-d8e89826a974" />
+<img width="240" height="240" alt="artihive-arpeggio-user-16-steps-240x240" src="https://github.com/user-attachments/assets/8e88d442-c40d-4900-ae34-67ad706f07d0" />
 <img width="240" height="240" alt="hyper-lfo" src="https://github.com/user-attachments/assets/4ab6cf19-9aab-4890-84de-9bf41d1c47c3" />
 <img width="240" height="240" alt="output" src="https://github.com/user-attachments/assets/1280812a-6d5b-4a09-8372-82eee119425c" />
 <img width="240" height="240" alt="out-comp" src="https://github.com/user-attachments/assets/8172a7e6-4234-476d-a7f9-12f1b5ed7ba2" />
 
-# ARTIHIVE 2.0.0
+## Hardware testing notice
+
+> **Please note:** This firmware has received only limited testing on physical FM-1 hardware. Automated tests, package verification and host-based stress tests have passed, but not every function, hardware revision, preset combination or long-duration operating condition has been tested on the device. Use it carefully, keep a copy of the previous working firmware, and make sure you have access to the recovery procedure before installing.
+
+
+# ARTIHIVE
 
 ARTIHIVE is an experimental eight-voice drone and polyphonic synthesizer firmware for the **M-VAVE FM-1**. It combines evolving FM textures, long envelopes, stereo motion, modulated delay, distortion, compression, mutation and exact-tempo arpeggiation in a compact performance instrument.
 
