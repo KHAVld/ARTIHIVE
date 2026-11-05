@@ -1,4 +1,4 @@
-
+<img width="1456" height="720" alt="artihive-logo-640x320-byKHAV" src="https://github.com/user-attachments/assets/35a2a57f-775d-4690-bc15-717b30609ded" />
 <img width="240" height="240" alt="drone" src="https://github.com/user-attachments/assets/26d97bfd-9c01-470f-84ce-f4ef8ce3e419" />
 <img width="240" height="240" alt="artihive-arpeggio-user-16-steps-240x240" src="https://github.com/user-attachments/assets/8e88d442-c40d-4900-ae34-67ad706f07d0" />
 <img width="240" height="240" alt="hyper-lfo" src="https://github.com/user-attachments/assets/4ab6cf19-9aab-4890-84de-9bf41d1c47c3" />
