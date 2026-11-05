@@ -4,6 +4,14 @@
 <img width="240" height="240" alt="hyper-lfo" src="https://github.com/user-attachments/assets/4ab6cf19-9aab-4890-84de-9bf41d1c47c3" />
 <img width="240" height="240" alt="output" src="https://github.com/user-attachments/assets/1280812a-6d5b-4a09-8372-82eee119425c" />
 <img width="240" height="240" alt="out-comp" src="https://github.com/user-attachments/assets/8172a7e6-4234-476d-a7f9-12f1b5ed7ba2" />
+<img width="240" height="240" alt="fm-route" src="https://github.com/user-attachments/assets/1bb9cd30-3c31-4fab-ac5f-c3bf5b41c6f2" />
+
+## Photosensitivity warning
+
+> **Warning:** The DISORDER mode uses repeated high-contrast screen changes between dark and light themes. Rapid flashing or alternating visual patterns may cause discomfort, eyestrain, migraine or a photosensitive reaction in susceptible individuals.
+>
+> Do not use DISORDER if you are sensitive to flashing images. Stop using the mode immediately if you experience discomfort, dizziness, nausea, visual disturbance or headache. Avoid staring directly at the display while DISORDER is active.
+
 
 ## Hardware testing notice
 
