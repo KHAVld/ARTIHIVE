@@ -8,7 +8,6 @@
 
 > ⚠️ **Photosensitivity notice:** ARTIHIVE 2.0.1 contains repeated high-contrast flashing in DISORDER mode and may be unsuitable for people who are sensitive to flashing images. This behaviour has been removed in ARTIHIVE 2.0.2. Users of version 2.0.1 are strongly advised to update to the latest release.
 
-
 ## Hardware testing notice
 
 > **Please note:** This firmware has received only limited testing on physical FM-1 hardware. Automated tests, package verification and host-based stress tests have passed, but not every function, hardware revision, preset combination or long-duration operating condition has been tested on the device. Use it carefully, keep a copy of the previous working firmware, and make sure you have access to the recovery procedure before installing.
