@@ -6,11 +6,7 @@
 <img width="240" height="240" alt="out-comp" src="https://github.com/user-attachments/assets/8172a7e6-4234-476d-a7f9-12f1b5ed7ba2" />
 <img width="240" height="240" alt="fm-route" src="https://github.com/user-attachments/assets/1bb9cd30-3c31-4fab-ac5f-c3bf5b41c6f2" />
 
-## Photosensitivity warning
-
-> **Warning:** The DISORDER mode uses repeated high-contrast screen changes between dark and light themes. Rapid flashing or alternating visual patterns may cause discomfort, eyestrain, migraine or a photosensitive reaction in susceptible individuals.
->
-> Do not use DISORDER if you are sensitive to flashing images. Stop using the mode immediately if you experience discomfort, dizziness, nausea, visual disturbance or headache. Avoid staring directly at the display while DISORDER is active.
+> ⚠️ **Photosensitivity notice:** ARTIHIVE 2.0.1 contains repeated high-contrast flashing in DISORDER mode and may be unsuitable for people who are sensitive to flashing images. This behaviour has been removed in ARTIHIVE 2.0.2. Users of version 2.0.1 are strongly advised to update to the latest release.
 
 
 ## Hardware testing notice
