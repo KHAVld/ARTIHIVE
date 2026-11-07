@@ -2,6 +2,7 @@
   "what": "Eight-voice experimental drone and polyphonic FM synthesizer with four interacting pairs, a 27-key keyboard, envelopes, legato glide, Hyper LFO, stereo motion, dual modulated delay, mutation, DISORDER and a 16-step arpeggiator. Artistically inspired by SOMA LYRA-8; independently developed.",
   "author": "KHAV",
   "kinds": ["synth"],
+  "play": "https://joakimeriksson.github.io/fm1-emu/?fw=artihive",
   "image": "docs/card.png",
   "color": "#F06F9D"
 }
