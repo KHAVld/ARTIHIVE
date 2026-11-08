@@ -3,6 +3,7 @@
   "author": "KHAV",
   "kinds": ["synth"],
   "play": "https://joakimeriksson.github.io/fm1-emu/?fw=artihive",
+  "cheat": "https://github.com/KHAVld/ARTIHIVE/releases/download/artihive-2.0.3/artihive-2.0.3-manual-en.pdf",
   "image": "docs/card.png",
   "color": "#F06F9D"
 }
