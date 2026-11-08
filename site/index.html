@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7f2947">
+  <meta name="description" content="ARTIHIVE — eight-voice experimental drone and polyphonic FM synthesizer firmware for the M-VAVE FM-1.">
+  <title>ARTIHIVE — FM-1 firmware by KHAV</title>
+  <link rel="stylesheet" href="styles.css?v=continuation-1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="ARTIHIVE home"><span class="brand-name">ARTIHIVE</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#instrument" data-en="Instrument" data-ru="Инструмент">Instrument</a>
+      <a href="#play" data-en="Play" data-ru="Играть">Play</a>
+      <a href="https://thefirmwarehub.com/#fw-artihive" target="_blank" rel="noopener" data-en="Install" data-ru="Установка">Install</a>
+      <a href="#docs" data-en="Docs" data-ru="Документы">Docs</a>
+    </nav>
+    <button class="lang" id="lang" type="button" aria-label="Switch language">RU</button>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-simple" id="top">
+      <div class="hero-identity reveal">
+        <img class="hero-logo" src="assets/artihive-logo-640x320-byKHAV.png" width="640" height="320" alt="ARTIHIVE by KHAV">
+        <div class="hero-features" aria-label="ARTIHIVE features">
+          <span class="feature-label feature-1"><b>8 VOICES</b><i data-en="digital swarm" data-ru="цифровой рой">digital swarm</i></span>
+          <span class="feature-label feature-2"><b>4 FM PAIRS</b><i data-en="mutual modulation" data-ru="взаимная модуляция">mutual modulation</i></span>
+          <span class="feature-label feature-3"><b>DRONE + POLY</b><i data-en="two performance modes" data-ru="два режима игры">two performance modes</i></span>
+          <span class="feature-label feature-4"><b>USER ARP</b><i data-en="16 programmable steps" data-ru="16 программируемых шагов">16 programmable steps</i></span>
+          <span class="feature-label feature-5"><b>HYPER LFO</b><i data-en="OR / AND logic" data-ru="логика OR / AND">OR / AND logic</i></span>
+          <span class="feature-label feature-6"><b>DUAL DELAY</b><i data-en="smooth TIME changes" data-ru="плавные изменения TIME">smooth TIME changes</i></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto section">
+      <p class="section-no">01 / SIGNAL</p>
+      <blockquote data-en="ARTIHIVE is a digital artifact inhabited by a swarm of eight signals. They interact and form a self-organizing system—like a hive or an ant colony." data-ru="ARTIHIVE — цифровой артефакт, внутри которого живёт рой из восьми сигналов. Они взаимодействуют и образуют самоорганизующуюся систему — подобно улью или муравейнику.">ARTIHIVE is a digital artifact inhabited by a swarm of eight signals. They interact and form a self-organizing system—like a hive or an ant colony.</blockquote>
+      <div class="facts">
+        <div><strong>8 VOICES</strong><span data-en="Digital swarm" data-ru="Цифровой рой">Digital swarm</span></div>
+        <div><strong>4 FM PAIRS</strong><span data-en="Mutual influence" data-ru="Взаимное влияние">Mutual influence</span></div>
+        <div><strong>1 SYSTEM</strong><span data-en="Self-organization" data-ru="Самоорганизация">Self-organization</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="instrument">
+      <div class="section-head"><div><p class="section-no">02 / INTERFACE</p><h2 data-en="One panel.<br>Eleven perspectives." data-ru="Одна панель.<br>Одиннадцать перспектив.">One panel.<br>Eleven perspectives.</h2></div><p data-en="Every page keeps four direct controls and a live visual field. Select a page to inspect its role." data-ru="На каждой странице — четыре прямых параметра и живое поле индикации. Выберите страницу, чтобы увидеть её назначение.">Every page keeps four direct controls and a live visual field. Select a page to inspect its role.</p></div>
+      <div class="interface">
+        <div class="screen-shell large"><img id="page-image" src="assets/screens/drone.png?v=2" width="240" height="240" alt="DRONE interface page"></div>
+        <div class="page-copy">
+          <p class="page-index" id="page-index">01 / 09</p>
+          <h3 id="page-title">DRONE</h3>
+          <p id="page-description">Eight independently tuned voices, four FM pairs and a live output oscilloscope.</p>
+          <div class="knobs" id="page-knobs"><span>TUNE</span><span>FINE</span><span>SHARP</span><span>MOD</span></div>
+          <div class="page-tabs" id="page-tabs" role="tablist" aria-label="Interface pages"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section disorder" id="disorder">
+      <div class="disorder-copy">
+        <p class="section-no">03 / DISORDER</p>
+        <h2 data-en="Hold REC.<br>Release the swarm." data-ru="Удерживайте REC.<br>Освободите рой.">Hold REC.<br>Release the swarm.</h2>
+        <p data-en="Hold REC for more than 0.7 seconds to enter DISORDER. While the button remains held, parameters follow independent smooth trajectories of roughly ten seconds, and one discrete switch changes every second." data-ru="Удерживайте REC дольше 0,7 секунды, чтобы включить DISORDER. Пока кнопка нажата, параметры движутся по независимым плавным траекториям длительностью около десяти секунд, а один дискретный переключатель меняется каждую секунду.">Hold REC for more than 0.7 seconds to enter DISORDER. While the button remains held, parameters follow independent smooth trajectories of roughly ten seconds, and one discrete switch changes every second.</p>
+        <p data-en="The interface becomes a full-screen cellular field that reacts to the output level. Release REC to return to the interface. Press SAVE + SEQ to undo the latest DISORDER session." data-ru="Интерфейс превращается в полноэкранное клеточное поле, реагирующее на уровень выходного сигнала. Отпустите REC, чтобы вернуться к интерфейсу. Нажмите SAVE + SEQ, чтобы отменить последний сеанс DISORDER.">The interface becomes a full-screen cellular field that reacts to the output level. Release REC to return to the interface. Press SAVE + SEQ to undo the latest DISORDER session.</p>
+        <div class="disorder-steps"><b>REC &gt; 0.7 s</b><span aria-hidden="true">•</span><b data-en="RELEASE · RETURN" data-ru="ОТПУСТИТЬ · ВЕРНУТЬСЯ">RELEASE · RETURN</b><span aria-hidden="true">•</span><b>SAVE + SEQ · UNDO</b></div>
+      </div>
+      <div class="disorder-demo">
+        <canvas id="disorder-canvas" width="480" height="480" aria-label="Animated DISORDER cellular field"></canvas>
+        <span data-en="LIVE CELLULAR FIELD" data-ru="ЖИВОЕ КЛЕТОЧНОЕ ПОЛЕ">LIVE CELLULAR FIELD</span>
+      </div>
+    </section>
+
+    <section class="section emulator" id="play">
+      <div class="emulator-heading">
+        <div><p class="section-no">04 / EMULATOR</p><h2 data-en="Play before<br>you flash." data-ru="Играйте до<br>прошивки.">Play before<br>you flash.</h2></div>
+        <p data-en="The browser emulator runs the unchanged ARTIHIVE firmware package with its screen, controls and sound." data-ru="Браузерный эмулятор запускает неизменённый пакет ARTIHIVE вместе с экраном, управлением и звуком.">The browser emulator runs the unchanged ARTIHIVE firmware package with its screen, controls and sound.</p>
+      </div>
+      <div class="emulator-layout">
+        <div class="emulator-embed">
+          <div class="emulator-bar"><b>FM1-EMU / ARTIHIVE</b><span>FIRMWARE 2.0.3</span></div>
+          <iframe src="https://joakimeriksson.github.io/fm1-emu/?fw=artihive&amp;embed=1" title="ARTIHIVE browser emulator" loading="eager" allow="autoplay; midi" referrerpolicy="no-referrer"></iframe>
+          <a href="https://joakimeriksson.github.io/fm1-emu/?fw=artihive" target="_blank" rel="noopener"><span data-en="OPEN IN A SEPARATE WINDOW" data-ru="ОТКРЫТЬ В ОТДЕЛЬНОМ ОКНЕ">OPEN IN A SEPARATE WINDOW</span> ↗</a>
+        </div>
+        <div class="emulator-notes">
+          <article class="emulator-warning"><b data-en="NO SOUND?" data-ru="НЕТ ЗВУКА?">NO SOUND?</b><span data-en="ARTIHIVE remains completely silent until PLAY is pressed. Click PLAY on the virtual panel before testing the sound." data-ru="ARTIHIVE сохраняет полную тишину до нажатия PLAY. Перед проверкой звука нажмите PLAY на виртуальной панели.">ARTIHIVE remains completely silent until PLAY is pressed. Click PLAY on the virtual panel before testing the sound.</span></article>
+          <article><b>SOUND</b><span data-en="The firmware DSP runs directly in WebAssembly." data-ru="DSP прошивки работает непосредственно в WebAssembly.">The firmware DSP runs directly in WebAssembly.</span></article>
+          <article><b>CONTROL</b><span data-en="Use the virtual panel or your computer keyboard." data-ru="Используйте виртуальную панель или клавиатуру компьютера.">Use the virtual panel or your computer keyboard.</span></article>
+          <article><b>UPDATE</b><span data-en="If an older build opens, select “Check for firmware updates”." data-ru="Если открылась старая сборка, выберите «Check for firmware updates».">If an older build opens, select “Check for firmware updates”.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <div class="section-head"><div><p class="section-no">05 / DOCUMENTATION</p><h2 data-en="Read deeper." data-ru="Подробнее.">Read deeper.</h2></div></div>
+      <div class="docs-grid">
+        <a href="assets/downloads/artihive-2.0.3-manual-en.pdf" target="_blank"><span>PDF · EN</span><b>ARTIHIVE Manual</b><i>17 pages ↗</i></a>
+        <a href="assets/downloads/artihive-2.0.3-manual-ru.pdf" target="_blank"><span>PDF · RU</span><b>Руководство ARTIHIVE</b><i>106 страниц ↗</i></a>
+        <a href="https://github.com/KHAVld/ARTIHIVE/releases/tag/artihive-2.0.3" target="_blank" rel="noopener"><span>GITHUB</span><b>Release 2.0.3</b><i>Source & assets ↗</i></a>
+        <a href="https://github.com/KHAVld/ARTIHIVE" target="_blank" rel="noopener"><span>GPL-3.0</span><b>Source code</b><i>View repository ↗</i></a>
+      </div>
+    </section>
+
+    <section class="section install-v2" id="install">
+      <div class="install-v2-head">
+        <p class="section-no">06 / INSTALL</p>
+        <h2 data-en="Install with<br>extra care." data-ru="Устанавливайте<br>с осторожностью.">Install with<br>extra care.</h2>
+      </div>
+      <div class="install-warning">
+        <b data-en="HARDWARE TESTING NOTICE" data-ru="ПРЕДУПРЕЖДЕНИЕ О ПРОВЕРКЕ">HARDWARE TESTING NOTICE</b>
+        <p data-en="I have not yet had an opportunity to test the installer on physical hardware. For now, I recommend installing ARTIHIVE through The Firmware Hub instead of using the experimental installer on this website." data-ru="У меня пока не было возможности протестировать установщик на физическом устройстве. Поэтому сейчас я рекомендую устанавливать ARTIHIVE через The Firmware Hub, а не через экспериментальный установщик на этом сайте.">I have not yet had an opportunity to test the installer on physical hardware. For now, I recommend installing ARTIHIVE through The Firmware Hub instead of using the experimental installer on this website.</p>
+      </div>
+      <div class="install-v2-actions">
+        <a class="hub-install" href="https://thefirmwarehub.com/#fw-artihive" target="_blank" rel="noopener"><strong data-en="INSTALL VIA THE FIRMWARE HUB" data-ru="УСТАНОВИТЬ ЧЕРЕЗ THE FIRMWARE HUB">INSTALL VIA THE FIRMWARE HUB</strong><span data-en="Recommended method ↗" data-ru="Рекомендуемый способ ↗">Recommended method ↗</span></a>
+        <a class="local-install" href="install.html?v=2"><strong data-en="EXPERIMENTAL INSTALLER" data-ru="ЭКСПЕРИМЕНТАЛЬНЫЙ УСТАНОВЩИК">EXPERIMENTAL INSTALLER</strong><span data-en="Open at your own risk →" data-ru="Открыть на свой риск →">Open at your own risk →</span></a>
+      </div>
+    </section>
+
+    <section class="section continuation" id="continuation">
+      <p class="section-no">07 / CONTINUATION</p>
+      <div class="continuation-grid">
+        <div class="continuation-title">
+          <h2 data-en="Thank you for becoming<br>part of the swarm." data-ru="Спасибо, что стали<br>частью роя.">Thank you for becoming<br>part of the swarm.</h2>
+          <span>— KHAV · 2026</span>
+        </div>
+        <div class="continuation-letter">
+          <p data-en="Thank you to everyone who has installed ARTIHIVE, played it and allowed this digital artifact to exist beyond my own device." data-ru="Спасибо всем, кто установил ARTIHIVE, играл на нём и позволил этому цифровому артефакту существовать за пределами моего собственного устройства.">Thank you to everyone who has installed ARTIHIVE, played it and allowed this digital artifact to exist beyond my own device.</p>
+          <p data-en="ARTIHIVE is constantly changing. I continue to revise its sound, behavior and interface as I learn what the instrument can become. Version 2.0.3 is the most stable release so far—and the first version that currently feels right to me." data-ru="ARTIHIVE постоянно меняется. Я продолжаю дорабатывать его звук, поведение и интерфейс, постепенно понимая, каким может стать этот инструмент. Версия 2.0.3 — самая стабильная на данный момент и первая версия, которая пока меня действительно устраивает.">ARTIHIVE is constantly changing. I continue to revise its sound, behavior and interface as I learn what the instrument can become. Version 2.0.3 is the most stable release so far—and the first version that currently feels right to me.</p>
+          <p data-en="Not every function has been fully tested yet. MIDI CC behavior is one of the areas that still needs broader hardware testing. I will keep working on ARTIHIVE, correcting it and expanding this instrument." data-ru="Пока протестированы не все функции. Например, работа MIDI CC всё ещё требует более широкой проверки на реальном оборудовании. Я продолжу работать над ARTIHIVE, исправлять его и развивать этот инструмент.">Not every function has been fully tested yet. MIDI CC behavior is one of the areas that still needs broader hardware testing. I will keep working on ARTIHIVE, correcting it and expanding this instrument.</p>
+        </div>
+      </div>
+      <div class="continuation-status">
+        <div><b>2.0.3</b><span data-en="CURRENT STABLE RELEASE" data-ru="ТЕКУЩАЯ СТАБИЛЬНАЯ ВЕРСИЯ">CURRENT STABLE RELEASE</span></div>
+        <div><b data-en="ONGOING" data-ru="В РАБОТЕ">ONGOING</b><span data-en="SOUND · BEHAVIOR · INTERFACE" data-ru="ЗВУК · ПОВЕДЕНИЕ · ИНТЕРФЕЙС">SOUND · BEHAVIOR · INTERFACE</span></div>
+        <div><b data-en="TESTING" data-ru="ПРОВЕРКА">TESTING</b><span>MIDI CC · HARDWARE</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span>ARTIHIVE</span></div><p>Created by KHAV · 2026</p><p data-en="Independent community firmware." data-ru="Независимая пользовательская прошивка.">Independent community firmware.</p></footer>
+  <script src="app.js?v=install-section-1"></script>
+</body>
+</html>

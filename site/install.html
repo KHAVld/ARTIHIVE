@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARTIHIVE — установка на M-Vave FM-1</title>
+<style>
+  :root{--bg:#0a2233;--card:#0d2c42;--line:#1f4c6b;--ink:#f2faff;--dim:#a9cde6;--pink:#1a8bd7;--ok:#7fdca4;--warn:#ffc46b;--bad:#ff7d7d}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--pink);box-shadow:0 0 18px var(--pink)}
+  h1{color:#fff}
+  h1{font-size:26px;margin:0;letter-spacing:.14em;font-weight:600}
+  .sub{color:var(--dim);margin:0 0 26px;font-size:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+  h2{font-size:15px;margin:0 0 12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+  .warn{border-color:#5a4620;background:#241d10}
+  .warn h2{color:var(--warn)}
+  p{margin:0 0 10px}
+  ul,ol{margin:0 0 10px;padding-left:22px}
+  li{margin:4px 0}
+  code{background:#123a55;padding:1px 6px;border-radius:5px;font-size:13px}
+  .drop{border:1.5px dashed var(--line);border-radius:12px;padding:26px;text-align:center;cursor:pointer;transition:.15s}
+  .drop:hover,.drop.hot{border-color:var(--pink);background:#123a55}
+  .drop b{color:var(--pink)}
+  input[type=file]{display:none}
+  .file{margin-top:14px;padding:12px 14px;background:#0a2637;border:1px solid var(--line);border-radius:10px;font-size:14px;display:none}
+  .file.show{display:block}
+  .kv{display:flex;justify-content:space-between;gap:10px;padding:3px 0;color:var(--dim)}
+  .kv span:last-child{color:var(--ink);font-variant-numeric:tabular-nums}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  button{font:inherit;font-weight:600;padding:12px 20px;border-radius:10px;border:1px solid var(--line);background:#14405e;color:var(--ink);cursor:pointer}
+  button.primary{background:var(--pink);color:#fff;border-color:#4aa9e4}
+  button:hover:not(:disabled){filter:brightness(1.12)}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  .bar{height:8px;background:#123a55;border-radius:99px;overflow:hidden;margin:14px 0 8px;display:none}
+  .bar.show{display:block}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),#8fd4ff);transition:width .3s}
+  .status{font-size:14px;min-height:22px;color:var(--dim)}
+  .status.ok{color:var(--ok)}.status.bad{color:var(--bad)}.status.warn{color:var(--warn)}
+  pre{background:#08202f;border:1px solid var(--line);border-radius:10px;padding:12px;max-height:200px;overflow:auto;font-size:12px;color:var(--dim);margin:12px 0 0;white-space:pre-wrap}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{color:var(--pink);white-space:nowrap;font-weight:600}
+  .keys{display:flex;gap:4px;margin:12px 0}
+  .key{flex:1;text-align:center;padding:10px 2px;border-radius:6px;font-size:12px;font-weight:600}
+  .sensor{background:#c6ced6;color:#0a2233}
+  .latch{background:#14405e;color:#a9cde6}
+  footer{color:var(--dim);font-size:13px;text-align:center;margin-top:24px}
+  .note{font-size:13px;color:var(--dim)}
+
+  /* ARTIHIVE BLUSH VEIN firmware skin */
+  @font-face{font-family:TerminusARTIHIVE;src:url("assets/fonts/TerminusTTF.ttf") format("truetype");font-display:swap}
+  @font-face{font-family:TerminusARTIHIVE;src:url("assets/fonts/TerminusTTF-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+  :root{--bg:#a64161;--card:#ffdce4;--line:#17090f;--ink:#17090f;--dim:#742743;--pink:#a72d57;--ok:#27593d;--warn:#8a3a00;--bad:#a00026}
+  body{font-family:TerminusARTIHIVE,monospace;font-size:17px;background:linear-gradient(108deg,transparent 0 22%,rgba(83,14,42,.3) 22.3% 22.7%,transparent 23%),radial-gradient(ellipse at 13% 8%,#ffe8ed,#e890a7 45%,transparent 68%),radial-gradient(ellipse at 88% 42%,#f6adc0,#a53e61 65%);background-attachment:fixed}
+  .wrap{max-width:920px}
+  header{background:var(--ink);color:#fff4f6;border:3px solid var(--ink);padding:16px 18px;margin-bottom:0;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
+  .dot{border-radius:0;background:#ffdce4;box-shadow:none;transform:rotate(45deg)}
+  h1{color:#fff4f6;font-size:34px;line-height:1;font-weight:700}
+  .sub{background:#ef9eb3;color:var(--ink);padding:10px 16px;border:3px solid var(--ink);margin-bottom:22px}
+  .card{background:rgba(255,220,228,.94);border:3px solid var(--line);border-radius:0;box-shadow:7px 7px 0 var(--line);padding:22px;margin:0 7px 24px 0;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
+  .warn{border-color:var(--line);background:#ffc2cf}.warn h2{color:var(--bad)}
+  h2{font-size:20px;color:var(--ink);border-bottom:2px solid var(--ink);padding-bottom:8px}
+  code,.file,pre{background:var(--ink);color:#ffeef2;border:2px solid var(--ink);border-radius:0}
+  .drop{border:3px dashed var(--ink);border-radius:0;background:#f6b2c2}.drop:hover,.drop.hot{background:#ffcfda;border-color:var(--ink)}.drop b,td:first-child{color:#8b143f}
+  button{font-family:inherit;font-size:16px;border:2px solid var(--ink);border-radius:0;background:#f2a0b5;color:var(--ink);box-shadow:4px 4px 0 var(--ink);clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)}
+  button.primary{background:var(--ink);color:#fff4f6;border-color:var(--ink)}button:hover:not(:disabled){filter:none;transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  .bar{border-radius:0;background:#e17d98;border:2px solid var(--ink);height:12px}.bar i{background:var(--ink)}
+  .key{border-radius:0;border:2px solid var(--ink)}.sensor{background:#fff1f4;color:var(--ink)}.latch{background:#d7708d;color:var(--ink)}
+  footer{color:#fff4f6;text-shadow:1px 1px var(--ink)}
+  /* Keep the firmware drop target inside the installer card at every width. */
+  html,body{max-width:100%;overflow-x:hidden}
+  .wrap,.card{width:100%;max-width:100%}
+  .drop{position:relative;inset:auto;display:block;width:100%;max-width:100%;margin:0;overflow:hidden;overflow-wrap:anywhere;transform:none}
+  .drop>div{max-width:100%}
+  @media(max-width:560px){.wrap{padding-inline:12px}.card{padding:16px}.drop{padding:22px 12px}.row{display:grid;grid-template-columns:1fr}.row button{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><div class="dot"></div><h1>ARTIHIVE</h1></header>
+  <p class="sub">Восьмиголосный экспериментальный дрон-синтезатор для M-Vave FM-1 · версия 2.0.3 · идентификатор <code>FM-1_9620</code></p>
+
+  <div class="card warn">
+    <h2>Прочитайте перед установкой</h2>
+    <p>Это сторонняя прошивка. У FM-1 <b>один банк флеша</b>: во время записи старая прошивка уже стёрта. Обрыв кабеля или питания на этом этапе означает, что устройство придётся оживлять через режим спасения (инструкция ниже).</p>
+    <p>Финальная 2.0.3 прошла полный автоматизированный набор тестов. ARTIHIVE 2.0.1 запускалась и прослушивалась на физическом FM-1; для 2.0.3 требуется отдельная аппаратная проверка. Держите под рукой файл заводской прошивки V15/V16, чтобы было куда вернуться.</p>
+  </div>
+
+  <div class="card">
+    <h2>1 · Подготовка</h2>
+    <ol>
+      <li>Откройте эту страницу в <b>Chrome, Edge, Opera или другом браузере на Chromium</b> на компьютере. Firefox и Safari не умеют WebMIDI.</li>
+      <li>Подключите FM-1 кабелем USB-C <b>с передачей данных</b> и включите его.</li>
+      <li>Закройте всё, что могло занять MIDI-порт: онлайн-редакторы, DAW, другие установщики.</li>
+      <li>Если страница открыта во встроенном просмотре и MIDI недоступен — скачайте файл и откройте его прямо в браузере или разместите на любом HTTPS-хостинге.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>2 · Файл прошивки</h2>
+    <label class="drop" id="drop">
+      <input type="file" id="file" accept=".fwsc">
+      <div>Перетащите сюда <b>artihive-2.0.3.fwsc</b> или нажмите, чтобы выбрать</div>
+      <div class="note" style="margin-top:6px">Подойдёт и заводской .fwsc — так вы вернётесь на сток</div>
+    </label>
+    <div class="file" id="info">
+      <div class="kv"><span>Файл</span><span id="fname">—</span></div>
+      <div class="kv"><span>Размер</span><span id="fsize">—</span></div>
+      <div class="kv"><span>Идентификатор устройства</span><span id="fprod">—</span></div>
+      <div class="kv"><span>Проверка</span><span id="fcheck">—</span></div>
+    </div>
+    <div class="row">
+      <button class="primary" id="go" disabled>Установить</button>
+      <button id="resume" disabled>Продолжить прерванную запись</button>
+      <button id="probe">Найти устройство</button>
+    </div>
+    <div class="bar" id="bar"><i id="fill"></i></div>
+    <div class="status" id="status">Файл не выбран.</div>
+    <pre id="log"></pre>
+    <p class="note" style="margin-top:12px">Запись занимает около двух минут. Экран FM-1 покажет <b>UPDATE MODE</b> и проценты. Не отключайте кабель и не закрывайте страницу.</p>
+  </div>
+
+  <div class="card warn">
+    <h2>Если что-то оборвалось</h2>
+    <ul>
+      <li><b>Запись прервалась.</b> Переподключите кабель и нажмите «Продолжить прерванную запись». Загрузчик остаётся в устройстве и ждёт продолжения.</li>
+      <li><b>Устройство не отвечает или прошивка не грузится.</b> Если приложение ещё запускается, выключите FM-1, зажмите <code>OCT−</code> и, не отпуская, включите: появится <b>UPDATE MODE</b>, и эту страницу можно использовать снова. Если банк приложения пуст или повреждён до запуска ARTIHIVE, <code>OCT−</code> не поможет — нужен аппаратный boot ROM чипа и <a href="https://github.com/kurogedelic/FM-1-transporter">FM-1-transporter</a>.</li>
+      <li><b>Возврат на заводскую прошивку.</b> Выберите скачанный с сайта M-Vave файл V15/V16 и нажмите «Установить». Идентификатор в файле должен начинаться с <code>FM-1_</code>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Как играть</h2>
+    <p>Восемь нижних белых клавиш — это <b>сенсоры голосов</b>, как независимые триггеры. Высота каждого голоса задаётся своим TUNE, клавиша лишь запускает огибающую. Восемь верхних белых клавиш защёлкивают голоса в дрон.</p>
+    <div class="keys">
+      <div class="key latch">1</div><div class="key latch">2</div><div class="key latch">3</div><div class="key latch">4</div>
+      <div class="key latch">5</div><div class="key latch">6</div><div class="key latch">7</div><div class="key latch">8</div>
+    </div>
+    <div class="keys">
+      <div class="key sensor">1</div><div class="key sensor">2</div><div class="key sensor">3</div><div class="key sensor">4</div>
+      <div class="key sensor">5</div><div class="key sensor">6</div><div class="key sensor">7</div><div class="key sensor">8</div>
+    </div>
+    <table>
+      <tr><td>HOME</td><td>TUNE · MOD · SHARP · HOLD — характер пары голосов</td></tr>
+      <tr><td>EDIT</td><td>Источники FM и общая обратная связь</td></tr>
+      <tr><td>ENV</td><td>Атака, спад, HOLD, FAST</td></tr>
+      <tr><td>LFO</td><td>Гипер-LFO: частоты A и B, связь, вибрато</td></tr>
+      <tr><td>FX</td><td>Драйв и микс; второе нажатие — модуляционный дилей</td></tr>
+      <tr><td>GLO</td><td>Строй, транспозиция, MIDI-канал</td></tr>
+      <tr><td>PLAY</td><td>Защёлкнуть или снять все дроны</td></tr>
+      <tr><td>ARP</td><td>Мутация: осторожно расшатать текущий звук</td></tr>
+      <tr><td>SAVE</td><td>Коротко — следующий слот, долго — записать текущий</td></tr>
+    </table>
+    <p class="note" style="margin-top:10px">Полная карта панели, архитектура и советы по звуку — в <code>README-RU.md</code> из архива с исходниками.</p>
+  </div>
+
+  <footer>ARTIHIVE 2.0.3 · GPL-3.0-only · независимая экспериментальная прошивка для исследования возможностей FM-1<br>Транспорт обновления: Felucca (Leo Kuroshita, Hügelton Instruments)</footer>
+</div>
+
+<script>
+// ---- fm1pkg.js (GPL-3.0-only, Felucca / Hügelton Instruments) ----
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 Leo Kuroshita (@kurogedelic), Hügelton Instruments
+//
+// FM-1 .fwsc packages in the browser: the package identity and the image the
+// device reads during an update.
+
+const BLOCKS = 20, BLK = 0x30, KEEP = 0x2F;
+const STOCK_V15_SHA256 = "db1642b2b6fa5c2cccb11ffd13878068bb28601678d3644049f99dc40e7edb8a";
+const STOCK_APP_SIZE = 0x8DFBC;
+const STOCK_V15_SIZE = 699956;
+
+const T = new Uint16Array(256);
+for (let i = 0; i < 256; i++) {
+  let c = i << 8;
+  for (let k = 0; k < 8; k++) c = c & 0x8000 ? (c << 1) ^ 0x1021 : c << 1;
+  T[i] = c & 0xFFFF;
+}
+
+function crc16(d, crc = 0) {
+  for (let i = 0; i < d.length; i++) crc = ((crc << 8) & 0xFFFF) ^ T[((crc >> 8) ^ d[i]) & 0xFF];
+  return crc;
+}
+
+function enc(buf, off, size, key = 0xFFFF) {
+  for (let i = 0; i < size; i++) {
+    buf[off + i] ^= key & 0xFF;
+    key = ((key * 2) ^ (key & 0x8000 ? 0x1021 : 0)) & 0xFFFF;
+  }
+}
+
+function sfc(buf, off, size, base, key) {
+  for (let i = 0; i < size; i += 32) enc(buf, off + i, Math.min(size - i, 32), key ^ ((off + i - base) >> 2));
+}
+
+function chipkeyDecode(d) {
+  let sum = 0;
+  for (let i = 0; i < 16; i++) sum += d[i];
+  sum &= 0xFF;
+  sum = sum >= 0xE0 ? 0xAA : sum <= 0x10 ? 0x55 : sum;
+  let k = 0;
+  for (let i = 0; i < 16; i++) if ((d[16 + i] ^ d[15 - i]) < sum) k |= 1 << i;
+  return k;
+}
+
+const align32 = (v) => (v + 31) & ~31;
+const u16 = (b, o) => b[o] | (b[o + 1] << 8);
+const u32 = (b, o) => (b[o] | (b[o + 1] << 8) | (b[o + 2] << 16) | (b[o + 3] << 24)) >>> 0;
+function w16(b, o, v) { b[o] = v & 0xFF; b[o + 1] = (v >> 8) & 0xFF; }
+function w32(b, o, v) { w16(b, o, v & 0xFFFF); w16(b, o + 2, (v >>> 16) & 0xFFFF); }
+
+class Entry {                                   // JLFS head, 32 bytes
+  constructor(raw, off) {
+    this.hdrOff = off;
+    this.hcrc = u16(raw, off);
+    this.dcrc = u16(raw, off + 2);
+    this.offset = u32(raw, off + 4);
+    this.size = u32(raw, off + 8);
+    this.flags = raw[off + 12];
+    this.resvd = raw[off + 13];
+    this.index = u16(raw, off + 14);
+    this.rawName = raw.slice(off + 16, off + 32);
+    const z = this.rawName.indexOf(0);
+    this.name = String.fromCharCode(...this.rawName.slice(0, z < 0 ? 16 : z));
+    if (crc16(raw.subarray(off + 2, off + 32)) !== this.hcrc) throw new Error(`JLFS header CRC mismatch @${off.toString(16)}`);
+  }
+  packInto(buf) {
+    const o = this.hdrOff;
+    w16(buf, o + 2, this.dcrc); w32(buf, o + 4, this.offset); w32(buf, o + 8, this.size);
+    buf[o + 12] = this.flags; buf[o + 13] = this.resvd; w16(buf, o + 14, this.index);
+    buf.set(this.rawName, o + 16);
+    this.hcrc = crc16(buf.subarray(o + 2, o + 32));
+    w16(buf, o, this.hcrc);
+  }
+}
+
+class Package {
+  constructor(bytes) {
+    this.raw = new Uint8Array(bytes);
+    this.parseUfw();
+    this.flash = this.raw.slice(this.flashFileOff, this.flashFileOff + this.flashSize);
+    this.parseFlash();
+  }
+
+  get product() { return productOf(this.raw); }
+
+  setProduct(name) {
+    if (name.length > BLOCKS) throw new Error("product name too long");
+    for (let i = 0; i < BLOCKS; i++) {
+      const m = i < name.length ? (name.charCodeAt(i) + i + 1) & 0xFF : 0x7D;
+      if (i < name.length && m === 0x7D) throw new Error("product name encodes to the unused marker");
+      this.raw[i * BLK + KEEP] = m;
+    }
+  }
+
+  headerBytes() {
+    const h = new Uint8Array(BLOCKS * KEEP);
+    for (let i = 0; i < BLOCKS; i++) h.set(this.raw.subarray(i * BLK, i * BLK + KEEP), i * KEEP);
+    return h;
+  }
+
+  hdrFileOff(i) { return Math.floor(i / KEEP) * BLK + (i % KEEP); }
+
+  parseUfw() {
+    const h = this.headerBytes();
+    enc(h, 0, 0x40);
+    const hcrc = u16(h, 0), lcrc = u16(h, 2), nent = u16(h, 8);
+    if (crc16(h.subarray(2, 0x40)) !== hcrc) throw new Error("not an FM-1 .fwsc (UFW header CRC mismatch)");
+    this.skew = BLOCKS * BLK - h.length;
+    this.ufw = h;
+    this.nent = nent;
+    const hsize = 0x40 + nent * 0x50;
+    if (crc16(h.subarray(0x40, hsize)) !== lcrc) throw new Error("UFW entry list CRC mismatch");
+    this.entries = [];
+    for (let off = 0x40; off < hsize; off += 0x50) {
+      const e = h.slice(off, off + 0x50);
+      enc(e, 0, 0x50);
+      const z = e.subarray(0x40, 0x50).indexOf(0);
+      this.entries.push({ off, type: u16(e, 0), dcrc: u16(e, 4), dataOff: u32(e, 8), size: u32(e, 12),
+        name: String.fromCharCode(...e.subarray(0x40, z < 0 ? 0x50 : 0x40 + z)), plain: e });
+    }
+    const fl = this.entries.find((e) => e.type === 0);
+    if (!fl) throw new Error("no flash.bin in the package");
+    this.flashEntry = fl;
+    this.flashFileOff = fl.dataOff + this.skew;
+    this.flashSize = fl.size;
+    if (crc16(this.raw.subarray(this.flashFileOff, this.flashFileOff + fl.size)) !== fl.dcrc) throw new Error("flash.bin CRC mismatch");
+  }
+
+  parseFlash() {
+    const dec = this.flash.slice();
+    const h = dec.slice(0, 32);
+    enc(h, 0, 32);
+    if (crc16(h.subarray(2, 32)) !== u16(h, 0)) throw new Error("flash header CRC mismatch");
+    this.chipKey = null; this.appBase = null;
+    for (let off = 32; ; off += 32) {
+      enc(dec, off, 32);
+      const e = new Entry(dec, off);
+      if (e.name === "isd_config.ini") {
+        const blob = dec.subarray(e.offset, e.offset + 34);
+        if (crc16(blob.subarray(0, 32)) === u16(blob, 32)) this.chipKey = chipkeyDecode(blob.subarray(0, 32));
+      }
+      if (e.flags === 0x81 && e.name === "app_dir_head" && this.appBase === null) this.appBase = e.offset;
+      if (e.index) break;
+    }
+    if (this.chipKey === null || this.appBase === null) throw new Error("chip key or app_dir_head not found");
+    const b = this.appBase, k = this.chipKey, end = align32(b + 32);
+    sfc(dec, b, end - b, b, k);
+    const head = new Entry(dec, b);
+    const blkEnd = b + head.size;
+    if (blkEnd > end) sfc(dec, end, blkEnd - end, b, k);
+    this.sfcEnd = Math.max(end, blkEnd);
+    this.cfgLen = 0;
+    const probe = this.flash.slice(b, align32(blkEnd) + 32);
+    sfc(probe, 0, probe.length, 0, k);
+    try {
+      const cfg = new Entry(probe, blkEnd - b);
+      if (cfg.name === "cfg" && blkEnd + cfg.size <= this.flash.length) this.cfgLen = cfg.size;
+    } catch (_) { /* no cfg block */ }
+    if (this.cfgLen) {
+      const region = this.flash.slice(b, blkEnd + this.cfgLen);
+      sfc(region, 0, region.length, 0, k);
+      dec.set(region, b);
+      this.sfcEnd = blkEnd + this.cfgLen;
+    }
+    this.head = head;
+    this.app = null;
+    for (let off = b + 32; ; off += 32) {
+      const e = new Entry(dec, off);
+      if (e.flags === 0x82 && e.name === "app.bin") this.app = e;
+      if (e.index) break;
+    }
+    if (!this.app) throw new Error("app.bin not found in app area");
+    this.appOff = b + this.app.offset;
+    this.dec = dec;
+  }
+
+  // the new app, padded to the stock size (Felucca never changes the layout)
+  setApp(app) {
+    if (app.length > this.app.size) throw new Error(`app is ${app.length} B, the slot is ${this.app.size} B`);
+    const nw = new Uint8Array(this.app.size).fill(0xFF);
+    nw.set(app);
+    const a = this.app, h = this.head, b = this.appBase;
+    this.dec.set(nw, this.appOff);
+    a.dcrc = crc16(nw);
+    a.packInto(this.dec);
+    h.dcrc = crc16(this.dec.subarray(h.hdrOff + 32, h.hdrOff + h.size));
+    h.packInto(this.dec);
+    this.sfcEnd = Math.max(align32(b + 32), b + h.size + this.cfgLen);
+    const region = this.dec.slice(b, this.sfcEnd);
+    sfc(region, 0, region.length, 0, this.chipKey);
+    this.flash.set(region, b);
+  }
+
+  serialize() {
+    const out = this.raw.slice();
+    out.set(this.flash, this.flashFileOff);
+    const fl = this.flashEntry, e = fl.plain.slice();
+    w16(e, 4, crc16(this.flash));
+    enc(e, 0, 0x50);
+    const h = this.ufw.slice();
+    h.set(e, fl.off);
+    const hsize = 0x40 + this.nent * 0x50;
+    w16(h, 2, crc16(h.subarray(0x40, hsize)));
+    w16(h, 0, crc16(h.subarray(2, 0x40)));
+    enc(h, 0, 0x40);
+    for (let i = 0; i < hsize; i++) out[this.hdrFileOff(i)] = h[i];
+    return out;
+  }
+}
+
+// the package identity ("FM-1_904"): one marker byte after each of the first 20 blocks
+function productOf(fwsc) {
+  if (fwsc.length < BLOCKS * BLK) throw new Error("not an FM-1 package (too short)");
+  let s = "";
+  for (let i = 0; i < BLOCKS; i++) {
+    const m = fwsc[i * BLK + KEEP];
+    if (m !== 0x7D) s += String.fromCharCode((m - i - 1) & 0xFF);
+  }
+  return s;
+}
+
+// the image the device addresses during an update: the .fwsc without the 20 marker bytes
+function logicalImage(fwsc) {
+  const out = new Uint8Array(fwsc.length - BLOCKS);
+  for (let i = 0; i < BLOCKS; i++) out.set(fwsc.subarray(i * BLK, i * BLK + KEEP), i * KEEP);
+  out.set(fwsc.subarray(BLOCKS * BLK), BLOCKS * KEEP);
+  return out;
+}
+
+async function sha256hex(bytes) {
+  const d = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(d)].map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+
+// Only the user's unmodified official V15 is accepted for a return to stock.
+// The digest pins every file, loader and flash layout; filenames are not evidence.
+async function validateStockPackage(bytes) {
+  if (bytes.length !== STOCK_V15_SIZE || await sha256hex(bytes) !== STOCK_V15_SHA256)
+    throw new Error("Select the unmodified official FM-1 V15 file (FM-1.fwsc).");
+  const pkg = new Package(bytes);
+  if (pkg.product !== "FM-1_015" || pkg.flashFileOff !== 1044 || pkg.flashSize !== 602112 ||
+      pkg.appBase !== 16384 || pkg.appOff !== 16672 || pkg.app.size !== STOCK_APP_SIZE ||
+      !pkg.entries.some((e) => e.type === 100 && e.name === "ota.bin" && e.size === 19969))
+    throw new Error("The official firmware has an unsupported FM-1 layout.");
+  return { product: pkg.product, image: logicalImage(bytes), sha256: STOCK_V15_SHA256 };
+}
+
+// official V15 + Felucca app -> installable package (Uint8Array)
+async function buildFeluccaPackage(stockBytes, appBytes, product) {
+  const sha = await sha256hex(stockBytes);
+  if (sha !== STOCK_V15_SHA256) throw new Error("this is not the official FM-1 V15 firmware file (FM-1.fwsc)");
+  const pkg = new Package(stockBytes);
+  pkg.setApp(appBytes);
+  pkg.setProduct(product);
+  return pkg.serialize();
+}
+
+// ---- fm1ota.js (GPL-3.0-only, Felucca / Hügelton Instruments) ----
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 Leo Kuroshita (@kurogedelic), Hügelton Instruments
+//
+// The FM-1 USB-MIDI update protocol over WebMIDI (after tools/fm1_install.py).
+// Step 1: the running firmware (official
+// or Felucca) reads parts of the package and stages the update loader. Step 2:
+// the loader reads the whole image and writes it. Both steps are "the device
+// asks, we answer": cmd 0x30 read requests on the logical image.
+
+const HS_QUERY = [0xF0, 0x00, 0x32, 0x45, 0x00, 0x00, 0x00, 0x40, 0x7F, 0xF7];
+const UPGRADE = [0xF0, 0x22, 0x24, 0x35, 0x7F, 0xF7];
+const MAXDATA = 512;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const IS_OTA = (id) => /^ota-/i.test(id.model);
+
+// errors carry a code the pages translate: notfound, model, stopped, noloader, lost, noreturn,
+// mismatch (detail: the identity the device reports), badreq
+function fail(code, msg, detail = "") { const e = new Error(msg); e.code = code; e.detail = detail; return e; }
+
+function pack7(data) {
+  const out = []; let acc = 0, nb = 0;
+  for (const b of data) {
+    acc |= b << nb; nb += 8;
+    while (nb >= 7) { out.push(acc & 0x7F); acc >>>= 7; nb -= 7; }
+  }
+  if (nb) out.push(acc & 0x7F);
+  return out;
+}
+
+function unpack7(s) {
+  const out = []; let acc = 0, nb = 0;
+  for (const b of s) {
+    acc |= (b & 0x7F) << nb; nb += 7;
+    while (nb >= 8) { out.push(acc & 0xFF); acc >>>= 8; nb -= 8; }
+  }
+  return out;
+}
+
+function response(addr, data, fl = 0) {
+  const len = data.length;
+  const body = [0x00, 0x59, 0x30, (len + 8) & 0xFF, ((len + 8) >> 8) & 0xFF, 0, fl,
+    addr & 0xFF, (addr >>> 8) & 0xFF, (addr >>> 16) & 0xFF, (addr >>> 24) & 0xFF,
+    len & 0xFF, (len >> 8) & 0xFF, 0, ...data];
+  let s = 0;
+  for (let i = 6; i < body.length; i++) s += body[i];
+  body.push(~s & 0xFF);
+  return [0xF0, ...pack7(body), 0xF7];
+}
+
+function parseRequest(pkt) {
+  if (pkt[0] !== 0xF0 || pkt[pkt.length - 1] !== 0xF7) return null;
+  const u = unpack7(pkt.slice(1, -1));
+  if (u.length !== 15 || u[0] !== 0 || u[1] !== 0x59 || u[2] !== 0x30) return null;
+  let s = 0;
+  for (let i = 6; i < 14; i++) s += u[i];
+  if ((~s & 0xFF) !== u[14]) return null;
+  return { fl: u[6], addr: (u[7] | (u[8] << 8) | (u[9] << 16) | (u[10] << 24)) >>> 0, len: u[11] | (u[12] << 8) | (u[13] << 16) };
+}
+
+function parseIdentity(pkt) {
+  const d = unpack7(pkt.slice(1, -1));
+  if (d.length !== 34 || d[0] !== 0 || d[1] !== 0x59 || d[2] !== 0x11) return null;
+  const txt = String.fromCharCode(...d.slice(6, 33)).replace(/\0+$/, "");
+  const m = /^([^_]+)_(\d+)$/.exec(txt);
+  return m ? { text: txt, model: m[1], version: parseInt(m[2], 10) } : null;
+}
+
+// one MIDI in/out pair with a SysEx queue
+class Link {
+  constructor(input, output) {
+    this.input = input; this.output = output; this.q = []; this.waiter = null;
+    input.onmidimessage = (ev) => {
+      if (ev.data[0] !== 0xF0) return;
+      this.q.push(Array.from(ev.data));
+      if (this.waiter) { const w = this.waiter; this.waiter = null; w(); }
+    };
+  }
+  get lost() { return this.input.state === "disconnected" || this.output.state === "disconnected"; }
+  // false when the port is gone (unplugged): WebMIDI throws on a disconnected output
+  send(bytes) {
+    try { this.output.send(bytes); return true; } catch (_) { return false; }
+  }
+  drain() { this.q.length = 0; }
+  async read(ms) {
+    if (!this.q.length) {
+      let tm;
+      await Promise.race([new Promise((r) => { this.waiter = r; }), new Promise((r) => { tm = setTimeout(r, ms); })]);
+      clearTimeout(tm);
+      this.waiter = null;
+    }
+    return this.q.shift() || null;
+  }
+  close() { this.input.onmidimessage = null; }
+}
+
+async function handshake(link, tries = 3) {
+  link.drain();
+  for (let t = 0; t < tries; t++) {
+    if (!link.send(HS_QUERY)) return null;
+    const end = Date.now() + 1000;
+    while (Date.now() < end) {
+      const p = await link.read(end - Date.now());
+      if (!p) break;
+      const id = parseIdentity(p);
+      if (id) return id;
+    }
+  }
+  return null;
+}
+
+class Updater {
+  constructor(access, log) {
+    this.access = access;
+    this.log = log || (() => {});
+  }
+
+  // every in/out pair with the same port name that answers the handshake
+  async find(filter) {
+    const outs = [...this.access.outputs.values()];
+    for (const input of this.access.inputs.values()) {
+      if (input.state === "disconnected") continue;
+      if (!/fm-1|felucca|ota|composite|sinco|usb-midi/i.test(input.name || "")) continue;   // never probe other gear
+      const output = outs.find((o) => o.name === input.name && o.state !== "disconnected");
+      if (!output) continue;
+      try { await input.open(); await output.open(); } catch (_) { continue; }
+      const link = new Link(input, output);
+      const id = await handshake(link, 2);
+      if (id && (!filter || filter(id))) return { link, id, name: input.name };
+      link.close();
+    }
+    return null;
+  }
+
+  async waitFor(filter, ms) {
+    const end = Date.now() + ms;
+    while (Date.now() < end) {
+      const dev = await this.find(filter);
+      if (dev) return dev;
+      await sleep(1000);
+    }
+    return null;
+  }
+
+  // serve read requests until the device asks for one of the finish addresses; stops early
+  // when the port disappears (lost: true) instead of waiting out idleMs
+  async serve(link, image, finishAddr, idleMs, onProgress) {
+    let served = 0, last = Date.now();
+    for (;;) {
+      const pkt = await link.read(1000);
+      if (!pkt) {
+        if (link.lost) return { served, finished: false, lost: true };
+        if (Date.now() - last > idleMs) return { served, finished: false };
+        continue;
+      }
+      const r = parseRequest(pkt);
+      if (!r) continue;
+      last = Date.now();
+      if (r.addr === 0xE0000000 || r.addr === 0xF0000000) {
+        link.send(response(r.addr, [...new TextEncoder().encode("success"), 0]));
+        if (r.addr === finishAddr) return { served, finished: true };
+        continue;
+      }
+      if (r.len > MAXDATA || r.addr + r.len > image.length) throw fail("badreq", `bad request ${r.addr.toString(16)}+${r.len}`);
+      await sleep(10);
+      if (!link.send(response(r.addr, Array.from(image.subarray(r.addr, r.addr + r.len)), r.fl))) {
+        return { served, finished: false, lost: true };
+      }
+      served++;
+      if (onProgress) onProgress(served, r.addr);
+    }
+  }
+
+  // full install: running firmware -> loader -> new firmware
+  async install(image, product, onStep) {
+    const step = onStep || (() => {});
+    const dev = await this.find((id) => !IS_OTA(id));
+    if (!dev) throw fail("notfound", "FM-1 not found (USB cable, and no other app using it?)");
+    const [model] = product.split("_");
+    if (dev.id.model !== model) { dev.link.close(); throw fail("model", `the device is ${dev.id.text}, the package is for ${product}`); }
+    step("start", dev.id.text);
+    dev.link.send(UPGRADE);
+    await sleep(2000);
+    const s1 = await this.serve(dev.link, image, 0xE0000000, 8000, (n) => step("verify", n));
+    dev.link.close();
+    if (!s1.finished) throw fail(s1.lost ? "lost" : "stopped", `the device ${s1.lost ? "was disconnected" : "stopped"} after ${s1.served} requests: nothing was written`);
+    step("loader");
+    await sleep(3000);
+    const ota = await this.waitFor((id) => id.model === "ota-" + model, 30000);
+    if (!ota) throw fail("noloader", "the update loader did not appear. Replug the USB cable and press Install again: the device stays in update mode until it is finished.");
+    const s2 = await this.write(ota, image, step);
+    if (!s2.finished) throw fail(s2.lost ? "lost" : "stopped", `the loader ${s2.lost ? "was disconnected" : "stopped"} after ${s2.served} requests. Replug and press Install again to resume.`);
+    step("reboot");
+    await sleep(3000);
+    const back = await this.waitFor((id) => !IS_OTA(id), 40000);
+    if (!back) throw fail("noreturn", "the device did not come back: power-cycle it");
+    back.link.close();
+    if (back.id.text !== product) throw fail("mismatch", `installed, but the device reports ${back.id.text}`, back.id.text);
+    step("done", back.id.text);
+    return back.id.text;
+  }
+
+  // step 2 with the loader found by find()/waitFor()
+  async write(ota, image, step) {
+    ota.link.send(UPGRADE);
+    await sleep(2000);
+    const s2 = await this.serve(ota.link, image, 0xF0000000, 180000, (n) => step("write", n));
+    ota.link.close();
+    return s2;
+  }
+
+  // resume: the device is already in update mode (loader) -> true when the write finished
+  async resume(image, onStep, product = null) {
+    const model = product && product.split("_")[0];
+    const ota = await this.find((id) => model ? id.model === "ota-" + model : IS_OTA(id));
+    if (!ota) return false;
+    const step = onStep || (() => {});
+    const result = await this.write(ota, image, step);
+    if (!result.finished) return false;
+    if (product) {
+      step("reboot");
+      await sleep(3000);
+      const back = await this.waitFor((id) => id.model === model, 40000);
+      if (!back) throw fail("noreturn", "The FM-1 did not return after resuming the write.");
+      back.link.close();
+      if (back.id.text !== product) throw fail("mismatch", "The FM-1 reports a different firmware after resuming.", back.id.text);
+      step("done", back.id.text);
+    }
+    return true;
+  }
+}
+
+
+const $ = (id) => document.getElementById(id);
+const logEl = $("log"), statusEl = $("status");
+let fwsc = null, product = null, image = null, access = null, busy = false;
+
+function say(msg, cls) { statusEl.textContent = msg; statusEl.className = "status" + (cls ? " " + cls : ""); }
+function log(msg) {
+  const t = new Date().toLocaleTimeString();
+  logEl.textContent += `[${t}] ${msg}\n`;
+  logEl.scrollTop = logEl.scrollHeight;
+}
+function progress(f) { $("bar").classList.add("show"); $("fill").style.width = Math.round(f * 100) + "%"; }
+
+const ERR = {
+  notfound: "FM-1 не найден. Проверьте кабель и закройте другие программы, работающие с MIDI.",
+  model: "Модель устройства не совпадает с прошивкой. Ничего не записано.",
+  stopped: "Устройство остановило обмен. Ничего не записано — можно попробовать снова.",
+  lost: "Связь с устройством потеряна. Переподключите кабель и нажмите «Продолжить прерванную запись».",
+  noloader: "Загрузчик не появился. Переподключите кабель и нажмите «Продолжить прерванную запись».",
+  noreturn: "Устройство не вернулось после записи. Выключите и включите его.",
+  mismatch: "Запись закончена, но устройство сообщает другой идентификатор.",
+  badreq: "Устройство запросило данные вне образа. Запись остановлена."
+};
+
+async function loadFile(f) {
+  try {
+    const bytes = new Uint8Array(await f.arrayBuffer());
+    const prod = productOf(bytes);
+    if (!prod.startsWith("FM-1")) throw new Error("в файле идентификатор " + (prod || "пусто") + ", ожидался FM-1_…");
+    const pkg = new Package(bytes);            // CRC заголовка, списка и всех файлов
+    if (!pkg.entries.some((e) => /ota\.bin/i.test(e.name))) throw new Error("в пакете нет загрузчика обновления");
+    fwsc = bytes; product = prod; image = logicalImage(bytes);
+    $("fname").textContent = f.name;
+    $("fsize").textContent = bytes.length.toLocaleString("ru-RU") + " байт";
+    $("fprod").textContent = prod;
+    $("fcheck").textContent = "контрольные суммы верны";
+    $("fcheck").style.color = "var(--ok)";
+    $("info").classList.add("show");
+    $("go").disabled = false; $("resume").disabled = false;
+    say("Файл проверен и готов к записи.", "ok");
+    log(`${f.name}: ${prod}, ${bytes.length} байт, CRC в порядке`);
+  } catch (e) {
+    fwsc = null; image = null;
+    $("info").classList.add("show");
+    $("fname").textContent = f.name; $("fsize").textContent = "—"; $("fprod").textContent = "—";
+    $("fcheck").textContent = "не подходит"; $("fcheck").style.color = "var(--bad)";
+    $("go").disabled = true; $("resume").disabled = true;
+    say("Этот файл не подходит: " + e.message, "bad");
+    log("отклонён: " + e.message);
+  }
+}
+
+$("file").addEventListener("change", (e) => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+const drop = $("drop");
+["dragenter", "dragover"].forEach((n) => drop.addEventListener(n, (e) => { e.preventDefault(); drop.classList.add("hot"); }));
+["dragleave", "drop"].forEach((n) => drop.addEventListener(n, (e) => { e.preventDefault(); drop.classList.remove("hot"); }));
+drop.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) loadFile(f); });
+
+async function midi() {
+  if (!navigator.requestMIDIAccess) throw new Error("этот браузер не поддерживает WebMIDI. Нужен Chrome или Edge на компьютере.");
+  if (!access) {
+    access = await navigator.requestMIDIAccess({ sysex: true });
+    log("WebMIDI: доступ разрешён");
+  }
+  return access;
+}
+
+function step(name, detail) {
+  const map = {
+    start: ["Устройство найдено, начинаем", 0.05],
+    verify: ["Проверка пакета устройством", null],
+    loader: ["Пакет принят, устройство уходит в загрузчик", 0.15],
+    write: ["Запись флеша", null],
+    reboot: ["Запись завершена, перезагрузка", 0.97],
+    done: ["Готово", 1]
+  };
+  const [text, f] = map[name] || [name, null];
+  if (name === "verify") { say(text + "…"); if (detail % 64 === 0) log(`проверка: ${detail} блоков`); return; }
+  if (name === "write") {
+    say(text + "…");
+    progress(Math.min(0.95, 0.15 + detail / 1400));
+    if (detail % 128 === 0) log(`запись: ${detail} блоков`);
+    return;
+  }
+  say(text + (detail ? ": " + detail : ""), name === "done" ? "ok" : "");
+  log(text + (detail ? ": " + detail : ""));
+  if (f !== null) progress(f);
+}
+
+function lock(on) {
+  busy = on;
+  $("go").disabled = on || !fwsc;
+  $("resume").disabled = on || !fwsc;
+  $("probe").disabled = on;
+}
+
+$("go").addEventListener("click", async () => {
+  if (busy || !fwsc) return;
+  if (!confirm(`Записать ${product} в устройство?\n\nСтарая прошивка будет стёрта. Не отключайте кабель около двух минут.`)) return;
+  lock(true);
+  try {
+    const a = await midi();
+    const up = new Updater(a, log);
+    const id = await up.install(image, product, step);
+    say("Установлено: " + id + ". Можно играть.", "ok");
+    progress(1);
+  } catch (e) {
+    const msg = ERR[e.code] || e.message;
+    say(msg, "bad"); log("ошибка: " + (e.code || "") + " " + e.message + (e.detail ? " (" + e.detail + ")" : ""));
+  } finally { lock(false); }
+});
+
+$("resume").addEventListener("click", async () => {
+  if (busy || !fwsc) return;
+  lock(true);
+  try {
+    const a = await midi();
+    const up = new Updater(a, log);
+    say("Ищем загрузчик…");
+    const ok = await up.resume(image, step, product);
+    if (ok) { say("Запись продолжена и завершена.", "ok"); progress(1); }
+    else { say("Загрузчик не найден. Выключите FM-1, зажмите OCT− и включите — затем нажмите эту кнопку снова.", "warn"); }
+  } catch (e) {
+    say(ERR[e.code] || e.message, "bad"); log("ошибка: " + e.message);
+  } finally { lock(false); }
+});
+
+$("probe").addEventListener("click", async () => {
+  try {
+    const a = await midi();
+    const up = new Updater(a, log);
+    say("Опрашиваем порты…");
+    const dev = await up.find();
+    if (dev) { say("Найдено: " + dev.id.text + " на порту " + dev.name, "ok"); log("устройство: " + dev.id.text); dev.link.close(); }
+    else { say("FM-1 не отвечает. Проверьте кабель и закройте другие MIDI-программы.", "warn"); }
+  } catch (e) { say(e.message, "bad"); log("ошибка: " + e.message); }
+});
+
+log("Страница готова. Выберите файл прошивки.");
+</script>
+</body>
+</html>

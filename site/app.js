@@ -1,0 +1,23 @@
+const pages=[
+ {id:'DRONE',img:'drone.png',knobs:['TUNE','FINE','SHARP','MOD'],en:'Eight independently tuned voices, four FM pairs and a live output oscilloscope.',ru:'Восемь независимо настроенных голосов, четыре FM-пары и живой осциллограф выхода.'},
+ {id:'POLY',img:'poly.png',knobs:['TUNE','FINE','SHARP','GLIDE'],en:'Eight-voice chromatic polyphony with immediate isolated notes and legato-only GLIDE.',ru:'Восьмиголосная хроматическая полифония: отдельные ноты звучат сразу, GLIDE работает только legato.'},
+ {id:'FM ROUTE',img:'fm-route.png',knobs:['SOURCE','MOD','STRUCT','TOT FB'],en:'Route the selected FM pair and reshape the feedback network.',ru:'Маршрутизация выбранной FM-пары и изменение структуры обратной связи.'},
+ {id:'ENVELOPE',img:'envelope.png',knobs:['FAST','REL','HOLD','ATK'],en:'Per-voice attack and release with pair-level HOLD.',ru:'Атака и затухание каждого голоса с парным HOLD.'},
+ {id:'HYPER LFO',img:'hyper-lfo.png',knobs:['FREQ A','FREQ B','MODE','LINK'],en:'Two linked oscillators with OR and AND interaction.',ru:'Два связанных генератора с взаимодействием OR и AND.'},
+ {id:'LFO SPACE',img:'lfo-space.png',knobs:['WIDTH','SOURCE','DIR','MODE'],en:'Move all four pairs through the stereo field.',ru:'Перемещение четырёх пар в стереофоническом поле.'},
+ {id:'MOD DEL · TIME',img:'mod-del-time.png',knobs:['TIME 1','TIME 2','FB','MIX'],en:'Two cross-coupled delay lines with smooth TIME transitions.',ru:'Две перекрёстно связанные линии задержки с плавными переходами TIME.'},
+ {id:'MOD DEL · MOD',img:'mod-del-mod.png',knobs:['MOD 1','MOD 2','SOURCE','WAVE'],en:'Delay modulation from Hyper LFO or the instrument output.',ru:'Модуляция задержки от Hyper LFO или выхода инструмента.'},
+ {id:'ARPEGGIO',img:'arpeggio.png',knobs:['BPM','STEPS','GATE','ORDER'],en:'Generated orders and a programmable 16-step USER pattern.',ru:'Готовые порядки и программируемый USER-паттерн на 16 шагов.'},
+ {id:'OUTPUT',img:'output.png',knobs:['DRIVE','D MIX','DRIFT','PRESS'],en:'Final drive, drift, pressure response and Signal Web.',ru:'Финальный драйв, дрейф, реакция на давление и Signal Web.'},
+ {id:'OUT COMP',img:'out-comp.png',knobs:['THRESH','RATIO','ATTACK','RELEASE'],en:'Stereo-linked output compressor with live meters.',ru:'Стереосвязанный выходной компрессор с живыми индикаторами.'}
+];
+const $=s=>document.querySelector(s),tabs=$('#page-tabs'),image=$('#page-image'),title=$('#page-title'),desc=$('#page-description'),knobs=$('#page-knobs'),index=$('#page-index');
+let current=0,lang=localStorage.getItem('artihive-lang')||'en';
+function showPage(i){current=i;const p=pages[i];image.src=`assets/screens/${p.img}?v=4`;image.alt=`${p.id} interface page`;title.textContent=p.id;desc.textContent=p[lang];knobs.innerHTML=p.knobs.map(k=>`<span>${k}</span>`).join('');index.textContent=String(i+1).padStart(2,'0')+' / '+String(pages.length).padStart(2,'0');[...tabs.children].forEach((b,n)=>b.setAttribute('aria-selected',String(n===i)))}
+pages.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.role='tab';b.textContent=p.id;b.onclick=()=>showPage(i);tabs.appendChild(b)});
+function setLang(next){lang=next;document.documentElement.dataset.lang=lang;document.documentElement.lang=lang;document.querySelectorAll('[data-en]').forEach(el=>{el.innerHTML=el.dataset[lang]});$('#lang').textContent=lang==='en'?'RU':'EN';localStorage.setItem('artihive-lang',lang);showPage(current)}
+$('#lang').addEventListener('click',()=>setLang(lang==='en'?'ru':'en'));setLang(lang);
+if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.section>*').forEach(e=>io.observe(e))}
+
+// Website preview of the firmware's audio-reactive DISORDER cellular field.
+(()=>{const c=document.querySelector('#disorder-canvas');if(!c)return;const x=c.getContext('2d'),n=30,cell=c.width/n;let a=new Uint8Array(n*n),b=new Uint8Array(n*n),last=0;for(let i=0;i<a.length;i++)a[i]=Math.random()>.72?1:0;function frame(t){if(t-last>85){last=t;for(let y=0;y<n;y++)for(let q=0;q<n;q++){let s=0;for(let j=-1;j<2;j++)for(let i=-1;i<2;i++)if(i||j)s+=a[((y+j+n)%n)*n+(q+i+n)%n];const k=y*n+q;b[k]=s===3||(a[k]&&s===2)?1:0;if(Math.random()<.008)b[k]=1}let z=a;a=b;b=z;x.fillStyle='#08080b';x.fillRect(0,0,c.width,c.height);for(let y=0;y<n;y++)for(let q=0;q<n;q++)if(a[y*n+q]){const pulse=(Math.sin(t*.003+q*.7+y*.4)+1)*.5;x.fillStyle=pulse>.72?'#fff7f7':pulse>.34?'#d96687':'#8b2d4d';x.fillRect(q*cell,y*cell,cell,cell)}}requestAnimationFrame(frame)}requestAnimationFrame(frame)})();
