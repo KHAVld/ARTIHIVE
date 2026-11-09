@@ -307,3 +307,119 @@ h2,h3,p,li { color:var(--fw-white); }
 /* Keep the COLORWAYS header close to the top edge of page 04. */
 .colourways{padding-top:22px}
 .colourways .colourways-head{align-items:start}
+
+/* Interactive website COLORWAYS. The first and fifth palette colours form the
+   page field and ink, so light and dark firmware themes remain legible. */
+.theme-grid article[role="button"]{cursor:pointer;transition:transform .12s,outline-color .12s}
+.theme-grid article[role="button"]:hover{transform:translateY(-3px)}
+.theme-grid article[role="button"]:focus-visible{outline:4px solid var(--theme-e,#fff);outline-offset:2px}
+html[data-site-theme] .topbar{background:var(--theme-bg);border-color:var(--theme-e)}
+html[data-site-theme] main{background:var(--theme-a);border-color:var(--theme-c)}
+html[data-site-theme] .hero.hero-simple{background:var(--theme-a);border-color:var(--theme-e)}
+html[data-site-theme] .section,
+html[data-site-theme] .section:nth-of-type(even),
+html[data-site-theme] .manifesto,
+html[data-site-theme] .disorder,
+html[data-site-theme] .colourways,
+html[data-site-theme] .emulator,
+html[data-site-theme] .install-v2,
+html[data-site-theme] .continuation{background:var(--theme-bg)!important;border-color:var(--theme-e)}
+html[data-site-theme] .facts div,
+html[data-site-theme] .feature-stack article,
+html[data-site-theme] .emulator-notes article,
+html[data-site-theme] .continuation-status div{background:var(--theme-a)}
+html[data-site-theme] .theme-instruction,
+html[data-site-theme] .lead{background:var(--theme-a)}
+html[data-site-theme] .button,
+html[data-site-theme] .interface-tab,
+html[data-site-theme] .mode-strip article{background:var(--theme-a);color:var(--theme-e);border-color:var(--theme-e)}
+html[data-site-theme] .button.primary,
+html[data-site-theme] .interface-tab.is-active{background:var(--theme-e);color:var(--theme-bg)}
+html[data-site-theme] footer{background:var(--theme-bg);border-color:var(--theme-e)}
+
+/* The cream outer surround and site chrome stay BLUSH VEIN. Only content
+   pages participate in firmware colourway switching. */
+html[data-site-theme] .topbar{background:var(--theme-dark);border-color:var(--theme-on-dark);color:var(--theme-on-dark)}
+html[data-site-theme] .topbar .brand-name,
+html[data-site-theme] .topbar a,
+html[data-site-theme] .topbar button{color:var(--theme-on-dark)}
+html[data-site-theme] footer{background:var(--theme-dark);border-color:var(--theme-on-dark);color:var(--theme-on-dark)}
+html[data-site-theme] footer a,
+html[data-site-theme] footer p{color:var(--theme-on-dark)}
+
+/* Replace every decorative BLUSH VEIN text accent with the selected palette. */
+html[data-site-theme] .hero-features .feature-label:nth-child(even) b,
+html[data-site-theme] .eyebrow,
+html[data-site-theme] .section-no,
+html[data-site-theme] .page-index,
+html[data-site-theme] .facts strong,
+html[data-site-theme] .feature-stack b,
+html[data-site-theme] .docs-grid span,
+html[data-site-theme] .install .section-no,
+html[data-site-theme] .install li b,
+html[data-site-theme] .page-tabs button[aria-selected="true"]{color:var(--theme-d);-webkit-text-stroke-color:var(--theme-e)}
+html[data-site-theme] .knobs span{border-color:var(--theme-d)}
+
+/* Compact firmware colourway selector on 02 / INTERFACE. */
+.interface-themes{margin-top:42px;padding-top:20px;border-top:2px solid var(--fw-white)}
+.interface-themes-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:12px}
+.interface-themes-head b{color:var(--fw-light);font:700 22px/1 var(--font-pixel)}
+.interface-themes-head span{font:400 12px/1.25 var(--font-pixel);text-align:right;opacity:.82}
+.interface-themes .theme-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.interface-themes .theme-grid article{min-height:74px;padding:9px;border-width:1px}
+.interface-themes .theme-grid b{font-size:13px;line-height:.9}
+.interface-themes .theme-grid article>div{height:22px;margin-top:auto}
+.interface-themes .theme-grid em{top:5px;right:5px;padding:3px;font-size:8px}
+@media(max-width:760px){.interface-themes .theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.interface-themes-head{align-items:flex-start;flex-direction:column}.interface-themes-head span{text-align:left}}
+.interface-themes{width:100%;grid-column:1/-1}
+
+/* BLUSH VEIN keeps the site's original cream surround. Other colourways use
+   their own middle palette colour around the central pages. */
+html[data-site-theme] body{background:var(--theme-c)}
+/* BLUSH VEIN surround uses the same middle palette position as every theme. */
+body{background:#da8fa5}
+html[data-site-theme] body{background:var(--theme-c)}
+
+/* 02 / INTERFACE page tabs follow the selected firmware palette. */
+.page-tabs button{background:#5e1f35;border-color:#da8fa5;color:#ffeef3}
+.page-tabs button[aria-selected="true"]{background:#ffeef3;border-color:#ffeef3;color:#822a46}
+html[data-site-theme] .page-tabs button{background:var(--theme-a);border-color:var(--theme-c);color:var(--theme-e)}
+html[data-site-theme] .page-tabs button[aria-selected="true"]{background:var(--theme-e);border-color:var(--theme-e);color:var(--theme-bg)}
+
+/* 05 / DOCUMENTATION cards follow the selected firmware palette. */
+.docs-grid{background:#da8fa5}
+.docs-grid a{background:#5e1f35;border-color:#da8fa5;color:#ffeef3}
+.docs-grid a:hover{background:#822a46}
+.docs-grid span{color:#f4c4d1}
+html[data-site-theme] .docs-grid{background:var(--theme-c)}
+html[data-site-theme] .docs-grid a{background:var(--theme-a);border-color:var(--theme-c);color:var(--theme-e)}
+html[data-site-theme] .docs-grid a:hover{background:var(--theme-bg)}
+html[data-site-theme] .docs-grid span{color:var(--theme-d);-webkit-text-stroke:0}
+
+/* 04 / EMULATOR — the NO SOUND? warning is semantic, not decorative. Keep
+   its original BLUSH VEIN warning treatment in every website colourway. */
+.emulator-notes .emulator-warning,
+html[data-site-theme] .emulator-notes .emulator-warning{background:#08080b;color:#fff7f7;border:3px solid #d21f45}
+.emulator-notes .emulator-warning b,
+html[data-site-theme] .emulator-notes .emulator-warning b{color:#ff405f;-webkit-text-stroke:0}
+.emulator-notes .emulator-warning span,
+html[data-site-theme] .emulator-notes .emulator-warning span{color:#fff7f7}
+
+/* Full-page typographic opening: no framed image and no artwork background. */
+.hero.hero-simple{min-height:calc(100vh - 58px);padding:32px 24px;overflow:hidden}
+.hero-simple .hero-identity{width:100%;max-width:none;min-height:calc(100vh - 122px)}
+.hero-wordmark{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--fw-white);font-family:var(--font-pixel);text-transform:uppercase}
+.hero-wordmark strong{font-size:clamp(76px,15vw,190px);font-weight:700;line-height:.72;letter-spacing:-.055em}
+.hero-wordmark span{align-self:flex-end;margin:22px 4% 0 0;font-size:clamp(18px,3.2vw,42px);font-weight:700;line-height:1;letter-spacing:.18em}
+html[data-site-theme] .hero-wordmark{color:var(--theme-e)}
+@media(max-width:760px){.hero.hero-simple{min-height:calc(100svh - 58px);padding:24px 14px}.hero-simple .hero-identity{min-height:calc(100svh - 106px)}.hero-wordmark strong{font-size:clamp(58px,19vw,110px)}.hero-wordmark span{margin-top:16px;margin-right:2%;font-size:clamp(16px,5vw,28px)}}
+.hero-symbol{display:block;width:clamp(150px,23vh,250px);height:auto;margin:0 0 clamp(20px,4vh,42px);overflow:visible}
+@media(max-width:760px){.hero-symbol{width:clamp(128px,22vh,190px);margin-bottom:24px}}
+.hero-symbol{image-rendering:pixelated;image-rendering:crisp-edges}
+
+/* Firmware-style black keyline around the complete opening identity. */
+.hero-symbol{filter:drop-shadow(3px 0 0 #08080b) drop-shadow(-3px 0 0 #08080b) drop-shadow(0 3px 0 #08080b) drop-shadow(0 -3px 0 #08080b)}
+.hero-wordmark strong,.hero-wordmark span{-webkit-text-stroke:3px #08080b;paint-order:stroke fill; text-shadow:3px 3px 0 #08080b}
+@media(max-width:760px){.hero-symbol{filter:drop-shadow(2px 0 0 #08080b) drop-shadow(-2px 0 0 #08080b) drop-shadow(0 2px 0 #08080b) drop-shadow(0 -2px 0 #08080b)}.hero-wordmark strong,.hero-wordmark span{-webkit-text-stroke:2px #08080b;text-shadow:2px 2px 0 #08080b}}
+.hero-features .feature-label b,.hero-features .feature-label i{-webkit-text-stroke:2px #08080b;paint-order:stroke fill;text-shadow:2px 2px 0 #08080b}
+.hero-features .feature-label i{-webkit-text-stroke:1px #08080b;text-shadow:1px 1px 0 #08080b}
