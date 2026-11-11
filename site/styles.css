@@ -581,3 +581,19 @@ html[data-site-theme] .demo .section-head h2 span{
 html[data-site-theme] .demo-video:last-child figcaption{
   color:#1a8bd7!important;
 }
+
+/* Responsive heading correction for sections 02 and 06. */
+@media(max-width:760px){
+  #instrument .section-head h2{
+    white-space:normal;
+    overflow-wrap:normal;
+    line-height:.95;
+  }
+  .demo .section-head h2{
+    white-space:normal;
+    line-height:.95;
+  }
+  .demo .section-head h2 span{
+    display:block;
+  }
+}
