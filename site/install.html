@@ -82,12 +82,12 @@
 <body>
 <div class="wrap">
   <header><div class="dot"></div><h1>ARTIHIVE</h1></header>
-  <p class="sub">Восьмиголосный экспериментальный дрон-синтезатор для M-Vave FM-1 · версия 2.0.3 · идентификатор <code>FM-1_9620</code></p>
+  <p class="sub">Восьмиголосный экспериментальный дрон-синтезатор для M-Vave FM-1 · версия 2.0.4 · идентификатор <code>FM-1_9620</code></p>
 
   <div class="card warn">
     <h2>Прочитайте перед установкой</h2>
     <p>Это сторонняя прошивка. У FM-1 <b>один банк флеша</b>: во время записи старая прошивка уже стёрта. Обрыв кабеля или питания на этом этапе означает, что устройство придётся оживлять через режим спасения (инструкция ниже).</p>
-    <p>Финальная 2.0.3 прошла полный автоматизированный набор тестов. ARTIHIVE 2.0.1 запускалась и прослушивалась на физическом FM-1; для 2.0.3 требуется отдельная аппаратная проверка. Держите под рукой файл заводской прошивки V15/V16, чтобы было куда вернуться.</p>
+    <p>Финальная 2.0.4 прошла полный автоматизированный набор тестов. Предыдущие версии ARTIHIVE запускались и прослушивались на физическом FM-1; версия 2.0.4 успешно запустилась на физическом FM-1. Перед публикацией рекомендуется отдельно проверить на устройстве полный сценарий STEP и длительную работу SWARM. Держите под рукой файл заводской прошивки V15/V16, чтобы было куда вернуться.</p>
   </div>
 
   <div class="card">
@@ -104,7 +104,7 @@
     <h2>2 · Файл прошивки</h2>
     <label class="drop" id="drop">
       <input type="file" id="file" accept=".fwsc">
-      <div>Перетащите сюда <b>artihive-2.0.3.fwsc</b> или нажмите, чтобы выбрать</div>
+      <div>Перетащите сюда <b>artihive-2.0.4.fwsc</b> или нажмите, чтобы выбрать</div>
       <div class="note" style="margin-top:6px">Подойдёт и заводской .fwsc — так вы вернётесь на сток</div>
     </label>
     <div class="file" id="info">
@@ -134,31 +134,27 @@
   </div>
 
   <div class="card">
-    <h2>Как играть</h2>
-    <p>Восемь нижних белых клавиш — это <b>сенсоры голосов</b>, как независимые триггеры. Высота каждого голоса задаётся своим TUNE, клавиша лишь запускает огибающую. Восемь верхних белых клавиш защёлкивают голоса в дрон.</p>
-    <div class="keys">
-      <div class="key latch">1</div><div class="key latch">2</div><div class="key latch">3</div><div class="key latch">4</div>
-      <div class="key latch">5</div><div class="key latch">6</div><div class="key latch">7</div><div class="key latch">8</div>
-    </div>
-    <div class="keys">
-      <div class="key sensor">1</div><div class="key sensor">2</div><div class="key sensor">3</div><div class="key sensor">4</div>
-      <div class="key sensor">5</div><div class="key sensor">6</div><div class="key sensor">7</div><div class="key sensor">8</div>
-    </div>
+    <h2>Как играть в 2.0.4</h2>
+    <p>HOME переключает основную страницу между <b>DRONE</b> и <b>POLY</b>. В DRONE нижние белые клавиши запускают восемь голосов, а верхние белые клавиши независимо удерживают их. В POLY клавиатура играет хроматически.</p>
     <table>
-      <tr><td>HOME</td><td>TUNE · MOD · SHARP · HOLD — характер пары голосов</td></tr>
-      <tr><td>EDIT</td><td>Источники FM и общая обратная связь</td></tr>
-      <tr><td>ENV</td><td>Атака, спад, HOLD, FAST</td></tr>
-      <tr><td>LFO</td><td>Гипер-LFO: частоты A и B, связь, вибрато</td></tr>
-      <tr><td>FX</td><td>Драйв и микс; второе нажатие — модуляционный дилей</td></tr>
-      <tr><td>GLO</td><td>Строй, транспозиция, MIDI-канал</td></tr>
-      <tr><td>PLAY</td><td>Защёлкнуть или снять все дроны</td></tr>
-      <tr><td>ARP</td><td>Мутация: осторожно расшатать текущий звук</td></tr>
-      <tr><td>SAVE</td><td>Коротко — следующий слот, долго — записать текущий</td></tr>
+      <tr><td>HOME</td><td>DRONE / POLY и основные параметры голосов</td></tr>
+      <tr><td>EDIT</td><td>Маршрутизация FM и обратная связь</td></tr>
+      <tr><td>ENV</td><td>FAST · REL · HOLD · ATK</td></tr>
+      <tr><td>LFO</td><td>HYPER LFO; повторное нажатие — LFO SPACE</td></tr>
+      <tr><td>FX</td><td>MOD DEL TIME; повторное нажатие — MOD DEL MOD</td></tr>
+      <tr><td>ARP</td><td>Арпеджиатор; ARP + HOME переключает DRONE/POLY</td></tr>
+      <tr><td>SEQ</td><td>STEP; SEQ + HOME переключает DRONE/POLY</td></tr>
+      <tr><td>PLAY</td><td>Запуск или остановка ARP/STEP в POLY; управление всеми дронами в DRONE вне секвенсора</td></tr>
+      <tr><td>REC &gt; 0,7 с</td><td>SWARM; отпустите REC для возврата</td></tr>
+      <tr><td>SAVE + REC</td><td>Отмена последнего сеанса SWARM</td></tr>
+      <tr><td>SEQ + чёрная клавиша 1–10</td><td>Выбор или построение цепочки STEP-паттернов</td></tr>
+      <tr><td>SEQ + OCT−/OCT+</td><td>Навигация по шагам при остановленном STEP</td></tr>
+      <tr><td>Удерживать SAVE в STEP</td><td>Сохранить полный банк из десяти паттернов</td></tr>
     </table>
-    <p class="note" style="margin-top:10px">Полная карта панели, архитектура и советы по звуку — в <code>README-RU.md</code> из архива с исходниками.</p>
+    <p class="note" style="margin-top:10px">Подробное двуязычное описание STEP находится на основной странице сайта.</p>
   </div>
 
-  <footer>ARTIHIVE 2.0.3 · GPL-3.0-only · независимая экспериментальная прошивка для исследования возможностей FM-1<br>Транспорт обновления: Felucca (Leo Kuroshita, Hügelton Instruments)</footer>
+  <footer>ARTIHIVE 2.0.4 · GPL-3.0-only · независимая экспериментальная прошивка для исследования возможностей FM-1<br>Транспорт обновления: Felucca (Leo Kuroshita, Hügelton Instruments)</footer>
 </div>
 
 <script>
