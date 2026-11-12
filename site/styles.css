@@ -1,0 +1,629 @@
+@font-face{font-family:Pixel;src:local("Courier New");font-display:swap}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#761f3d;color:#fff8fb;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 78% 5%,#b54a70 0 12%,transparent 33%),radial-gradient(circle at 15% 60%,#9b3459 0 8%,transparent 35%),linear-gradient(145deg,#4f102b,#812645 45%,#5b1431)}body:after{content:"";position:fixed;inset:-20%;z-index:-2;opacity:.42;background:repeating-radial-gradient(ellipse at 20% 30%,transparent 0 45px,#ef8cab 46px 50px,transparent 52px 80px);transform:rotate(-12deg);filter:blur(1px);animation:veins 28s linear infinite alternate}.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.15;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E")}@keyframes veins{to{transform:translate3d(5%,2%,0) rotate(-8deg)}}a{color:inherit}.skip{position:fixed;top:-60px;left:10px;background:#000;padding:12px;z-index:20}.skip:focus{top:10px}.topbar{height:74px;padding:0 clamp(20px,4vw,68px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff42;position:sticky;top:0;z-index:10;background:#681d38dd;backdrop-filter:blur(14px)}.brand{display:flex;align-items:center;gap:10px;font-family:Pixel,monospace;font-weight:700;letter-spacing:.12em;text-decoration:none}.brand-mark{display:grid;place-items:center;width:28px;height:28px;border:1px solid #fff;border-radius:50%}.topbar nav{display:flex;gap:30px}.topbar nav a{text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}.topbar nav a:hover{opacity:1}.lang{border:1px solid #fff8;background:transparent;color:white;padding:8px 11px;cursor:pointer;font-weight:bold}.hero{min-height:calc(100vh - 74px);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:5vw;padding:70px clamp(20px,7vw,120px)}.eyebrow,.section-no,.page-index{font:12px Pixel,monospace;letter-spacing:.16em;color:#ffc3d6}.hero h1{font-size:clamp(64px,10vw,154px);line-height:.78;letter-spacing:-.075em;margin:24px 0 38px}.hero h1 span{color:#ff96b7;-webkit-text-stroke:1px #ffccdb}.lead{max-width:640px;font-size:clamp(18px,2vw,27px);line-height:1.42}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border:1px solid #fff8;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.05em;background:#5c1732aa;transition:.2s}.button:hover{transform:translateY(-2px);border-color:white}.button.primary{background:#080608;color:#fff;border-color:#080608}.micro{font-size:11px;opacity:.7;margin-top:22px}.hero-visual{position:relative;display:grid;place-items:center;min-height:500px}.screen-shell{position:relative;padding:16px;background:#151014;border:1px solid #ffffff88;box-shadow:0 30px 100px #24000fbb,0 0 0 8px #54142d}.screen-shell:after{content:"";position:absolute;inset:8px;border:1px solid #ffffff20;pointer-events:none}.screen-shell img{display:block;width:min(55vw,380px);height:auto;image-rendering:pixelated}.screen-shell.large img{width:min(42vw,430px)}.orbit{position:absolute;border:1px solid #ff8cb15c;border-radius:50%;pointer-events:none}.orbit-a{width:470px;height:470px;animation:spin 20s linear infinite}.orbit-b{width:590px;height:340px;transform:rotate(30deg);animation:spinB 25s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinB{to{transform:rotate(390deg)}}.annotation{position:absolute;font:10px Pixel,monospace;letter-spacing:.14em;background:#080608;padding:8px}.a1{top:10%;right:2%}.a2{bottom:15%;left:0}.a3{bottom:3%;right:7%}.section{padding:110px clamp(20px,7vw,120px);border-top:1px solid #ffffff30}.manifesto{background:#0b090a}.manifesto blockquote{font-size:clamp(36px,6vw,88px);line-height:1.04;letter-spacing:-.04em;margin:45px 0 85px;max-width:1300px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ffffff30}.facts div{background:#0b090a;padding:30px;display:flex;flex-direction:column;gap:8px}.facts strong{font:clamp(18px,2.1vw,30px) Pixel,monospace;color:#ff94b5}.facts span{font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.65}.section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:70px}.section h2{font-size:clamp(50px,7vw,110px);line-height:.9;letter-spacing:-.055em;margin:22px 0 0}
+#instrument .section-head{display:block;margin-bottom:54px}
+#instrument .section-head>div{max-width:none}
+#instrument .section-head h2{font-size:clamp(16px,3.8vw,56px);letter-spacing:-.04em;white-space:nowrap}
+#instrument .section-head>p{max-width:720px;margin:24px 0 0;line-height:1.65}.section-head>p{max-width:430px;line-height:1.65;opacity:.8}.interface{display:grid;grid-template-columns:minmax(300px,500px) 1fr;gap:8vw;align-items:center}.page-copy h3{font-size:clamp(50px,7vw,104px);margin:10px 0 20px;letter-spacing:-.06em}.page-copy>p:not(.page-index){font-size:20px;max-width:580px;line-height:1.5}.knobs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:30px 0}.knobs span{border-top:2px solid #ff93b5;padding-top:10px;font:11px Pixel,monospace}.page-tabs{display:flex;flex-wrap:wrap;gap:7px}.page-tabs button{border:1px solid #ffffff55;background:#5a142e;color:white;padding:9px 12px;font:10px Pixel,monospace;cursor:pointer}.page-tabs button[aria-selected="true"]{background:#000;border-color:#000;color:#ff9cba}.split{display:grid;grid-template-columns:1fr 1fr;gap:9vw;background:#30101f}.split>div>p:not(.section-no){font-size:19px;line-height:1.6;max-width:620px}.text-link{display:inline-block;margin-top:24px;font-weight:bold;text-decoration:none;border-bottom:1px solid;padding-bottom:5px}.feature-stack{display:flex;flex-direction:column;gap:1px}.feature-stack article{background:#6e1d3b;padding:30px;display:grid;grid-template-columns:120px 1fr;gap:20px}.feature-stack b{font:18px Pixel,monospace;color:#ff9fbd}.feature-stack span{line-height:1.45}.install{background:#f3edf0;color:#171014}.install-card{max-width:1150px;margin:auto}.install .section-no{color:#9a214d}.install ol{list-style:none;padding:0;margin:50px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#c9b9bf}.install li{background:#f3edf0;padding:30px;display:flex;gap:20px;line-height:1.5}.install li b{font:18px Pixel,monospace;color:#bd174f}.install .button{background:#fff}.install .button.primary{background:#0b090a}.install code{display:block;overflow:auto;margin-top:25px;padding:15px;background:#ded2d6;font-size:11px}.docs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ffffff42}.docs-grid a{min-height:230px;padding:28px;background:#651a37;text-decoration:none;display:flex;flex-direction:column;transition:.2s}.docs-grid a:hover{background:#150b10}.docs-grid span{font:11px Pixel,monospace;color:#ff9dbc}.docs-grid b{font-size:26px;margin:auto 0}.docs-grid i{font-size:12px;opacity:.7;font-style:normal}footer{padding:40px clamp(20px,7vw,120px);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;border-top:1px solid #ffffff40;font-size:12px}footer p:nth-child(2){text-align:center}footer p:last-child{text-align:right}.reveal{animation:appear .8s ease both}@keyframes appear{from{opacity:0;transform:translateY(20px)}}@media(max-width:900px){.topbar nav{display:none}.hero{grid-template-columns:1fr;padding-top:45px}.hero-visual{min-height:400px}.hero h1{font-size:20vw}.interface,.split{grid-template-columns:1fr}.section-head{display:block}.docs-grid{grid-template-columns:1fr 1fr}.facts,.install ol{grid-template-columns:1fr}.screen-shell.large img{width:min(80vw,430px)}.orbit{display:none}}@media(max-width:560px){.hero{padding-inline:20px}.section{padding:80px 20px}.hero-visual{min-height:330px}.screen-shell img{width:72vw}.docs-grid{grid-template-columns:1fr}.knobs{grid-template-columns:1fr 1fr}.feature-stack article{grid-template-columns:1fr}footer{grid-template-columns:1fr;gap:15px;text-align:left}footer p:nth-child(2),footer p:last-child{text-align:left}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}.button:hover{transform:none}}
+
+/* Firmware-faithful BLUSH VEIN skin. Terminus is the source face used by
+   firmware/gen/felucca_font.h (ter-u16n.bdf). */
+@font-face {
+  font-family: "Terminus ARTIHIVE";
+  src: url("assets/fonts/TerminusTTF.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Terminus ARTIHIVE";
+  src: url("assets/fonts/TerminusTTF-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --font-pixel: "Terminus ARTIHIVE", monospace;
+  --blush-0: #ffd7df;
+  --blush-1: #f4a4b7;
+  --blush-2: #cf667f;
+  --blush-3: #7e2946;
+  --vein: #611d38;
+  --ink: #12090d;
+  --paper: #fff6f7;
+}
+
+html { image-rendering: pixelated; }
+body {
+  font-family: var(--font-pixel);
+  letter-spacing: 0;
+  background:
+    linear-gradient(108deg, transparent 0 14%, rgba(73,15,40,.28) 14.2% 14.6%, transparent 14.8% 100%),
+    linear-gradient(73deg, transparent 0 33%, rgba(88,24,48,.22) 33.2% 33.55%, transparent 33.8% 100%),
+    radial-gradient(ellipse at 12% 6%, #ffe9ed 0, #ef9db1 31%, transparent 58%),
+    radial-gradient(ellipse at 89% 34%, #f7b1c1 0, #c75c7a 48%, transparent 72%),
+    #a13d5f;
+}
+body::before {
+  opacity: .92;
+  background-image:
+    linear-gradient(116deg, transparent 0 45%, rgba(255,237,240,.24) 45.3% 45.7%, transparent 46% 100%),
+    repeating-linear-gradient(137deg, transparent 0 74px, rgba(92,24,51,.14) 76px, transparent 79px);
+}
+
+h1, h2, h3, .eyebrow, .nav-links, .button, .brand, .section-kicker,
+.stat strong, .interface-tab, .interface-screen-label, .download-meta,
+.version-chip, .footer-title, .status-line, .screen-label, .screen-value {
+  font-family: var(--font-pixel);
+}
+
+h1 {
+  max-width: 720px;
+  font-size: clamp(2.75rem, 8vw, 6.7rem);
+  line-height: .78;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(255,255,255,.62), 5px 5px 0 rgba(88,18,45,.15);
+}
+h2 { font-size: clamp(2.15rem, 5vw, 4.5rem); line-height: .86; letter-spacing: -.025em; }
+h3 { letter-spacing: .02em; }
+p, li { font-family: var(--font-pixel); font-size: 1.13rem; line-height: 1.32; }
+
+.topbar {
+  border-bottom: 3px solid var(--ink);
+  background: rgba(247,174,189,.92);
+  box-shadow: 0 4px 0 rgba(255,255,255,.35);
+}
+.brand-mark { border-radius: 0; transform: rotate(45deg); box-shadow: inset 0 0 0 2px var(--paper); }
+.brand-mark::after { border-radius: 0; }
+.nav-links a, .lang-button { border-radius: 0; }
+.nav-links a:hover, .lang-button:hover, .lang-button.is-active { background: var(--ink); color: var(--paper); }
+
+.hero { min-height: 760px; align-items: center; }
+.hero::after {
+  content: "ARTIHIVE  /  BLUSH VEIN  /  240×240";
+  position: absolute; right: 6vw; bottom: 18px;
+  padding: 7px 9px 5px; color: var(--paper); background: var(--ink);
+  font: 700 .82rem/1 var(--font-pixel); letter-spacing: .08em;
+}
+.hero-visual { filter: drop-shadow(15px 17px 0 rgba(65,14,35,.2)); }
+.screen-frame {
+  border: 4px solid var(--ink); border-radius: 0; padding: 13px;
+  background: var(--ink); clip-path: polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);
+}
+.screen-frame::before, .screen-frame::after { display: none; }
+.screen-label { border-radius: 0; background: var(--paper); color: var(--ink); border: 2px solid var(--ink); }
+
+.button {
+  border: 2px solid var(--ink); border-radius: 0; box-shadow: 4px 4px 0 var(--ink);
+  text-transform: uppercase; letter-spacing: .04em;
+  clip-path: polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+}
+.button:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--ink); }
+.button-primary { background: var(--ink); color: var(--paper); }
+.button-secondary { background: var(--blush-0); }
+
+.section { border-top: 3px solid var(--ink); }
+.section-kicker, .eyebrow, .version-chip { border-radius: 0; border: 2px solid var(--ink); background: var(--paper); box-shadow: 3px 3px 0 var(--ink); }
+.feature-card, .step-card, .download-card, .manual-card, .release-panel, .emulator-panel, .installer-panel, .changelog-panel {
+  border: 3px solid var(--ink); border-radius: 0; box-shadow: 7px 7px 0 rgba(22,8,14,.92);
+  background: rgba(255,228,233,.92);
+  clip-path: polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+}
+.feature-card::before, .step-card::before, .download-card::before, .manual-card::before {
+  content: ""; display: block; width: 44px; height: 7px; margin: -4px 0 15px;
+  background: var(--ink); box-shadow: 50px 0 0 var(--blush-2);
+}
+.interface-shell { border: 3px solid var(--ink); border-radius: 0; box-shadow: 9px 9px 0 var(--ink); }
+.interface-tab { border-radius: 0; border-width: 2px; }
+.interface-tab.is-active { background: var(--ink); color: var(--paper); }
+.interface-screen { border-radius: 0; border: 4px solid var(--ink); background: var(--ink); padding: 12px; }
+.interface-screen img { width: min(100%,480px); image-rendering: pixelated; }
+.code-box { border-radius: 0; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); }
+
+.site-footer { border-top: 3px solid var(--paper); background: var(--ink); }
+.site-footer p, .site-footer a { color: #ffdbe3; }
+
+@media (max-width: 760px) {
+  h1 { font-size: clamp(2.7rem, 16vw, 4.8rem); }
+  h2 { font-size: clamp(2.25rem, 12vw, 3.4rem); }
+  p, li { font-size: 1.06rem; }
+  .hero { min-height: auto; }
+  .hero::after { position: static; display: inline-block; margin-top: 28px; }
+}
+.brand-logo { width: 52px; height: 52px; object-fit: contain; image-rendering: pixelated; flex: 0 0 auto; }
+
+/* BLUSH VEIN web adaptation — directly derived from the 240×240 firmware UI. */
+:root { --fw-bg:#8b2d4d; --fw-pink:#d96687; --fw-light:#ffadc3; --fw-white:#fff7f7; --fw-black:#08080b; --fw-key:#8d9aa7; }
+body {
+  color: var(--fw-white);
+  background: #d8c8aa;
+  image-rendering: pixelated;
+}
+body::before,body::after,.grain,.orbit { display:none!important; }
+.topbar {
+  position:sticky; top:0; max-width:1040px; min-height:58px; margin:0 auto;
+  padding:4px 12px; border:0; border-bottom:2px solid var(--fw-white);
+  background:rgba(139,45,77,.96); box-shadow:none;
+}
+.brand-logo { width:46px;height:46px; }
+nav { gap:3px; }
+nav a,.lang { min-height:34px;padding:8px 10px;color:var(--fw-white);border:1px solid transparent;background:transparent; }
+nav a:hover,.lang:hover { color:var(--fw-black);background:var(--fw-white);border-color:var(--fw-black); }
+main { max-width:1040px; margin:auto; background:rgba(119,31,63,.18); border-left:1px solid rgba(255,247,247,.32);border-right:1px solid rgba(255,247,247,.32); }
+.hero { min-height:610px; padding:54px 44px 42px;gap:32px;border:0; }
+.hero::after { content:"";display:none; }
+.hero-copy { max-width:510px; }
+.eyebrow,.section-kicker,.version-chip { display:inline-block;color:var(--fw-white);background:var(--fw-black);border:0;box-shadow:none;padding:6px 8px;border-radius:0; }
+h1 { margin:24px 0 20px;font-size:clamp(3.3rem,8vw,6rem);line-height:.76;color:var(--fw-white);text-shadow:3px 3px 0 var(--fw-black);letter-spacing:0; }
+h1 span { color:var(--fw-light); }
+.lead { max-width:500px;padding:11px 12px;color:var(--fw-white);background:rgba(83,17,43,.68);border-top:2px solid var(--fw-white);border-bottom:2px solid var(--fw-white); }
+.screen-shell { padding:0;border:3px solid var(--fw-white);background:var(--fw-black);box-shadow:7px 7px 0 var(--fw-black); }
+.screen-shell img { display:block;width:360px;max-width:100%;image-rendering:pixelated; }
+.orbit { display:none; }
+.annotation { color:var(--fw-white);background:var(--fw-black);border:1px solid var(--fw-white);border-radius:0;box-shadow:none;padding:5px 7px; }
+.actions { gap:10px; }
+.button { min-height:44px;padding:10px 15px;color:var(--fw-white);background:var(--fw-black);border:2px solid var(--fw-white);box-shadow:none;clip-path:none; }
+.button.primary { color:var(--fw-black);background:var(--fw-white);border-color:var(--fw-black);box-shadow:inset 0 0 0 2px var(--fw-white); }
+.button:hover { color:var(--fw-black);background:var(--fw-light);transform:none;box-shadow:none; }
+.section { padding:46px 44px;border-top:2px solid var(--fw-white);background:rgba(133,39,72,.7); }
+.section:nth-of-type(even){background:rgba(103,25,56,.72)}
+.section-no { color:var(--fw-white); }
+blockquote { color:var(--fw-white);text-shadow:2px 2px var(--fw-black); }
+h2,h3,p,li { color:var(--fw-white); }
+.feature-card,.step-card,.download-card,.manual-card,.release-panel,.emulator-panel,.installer-panel,.changelog-panel,.interface-shell {
+  color:var(--fw-white);background:rgba(126,38,69,.92);border:2px solid var(--fw-white);border-radius:0;box-shadow:none;clip-path:none;
+}
+.feature-card::before,.step-card::before,.download-card::before,.manual-card::before{display:none}
+.feature-card h3,.step-card h3,.download-card h3,.manual-card h3 { color:var(--fw-white);border-bottom:1px solid var(--fw-white);padding-bottom:8px; }
+.interface-tabs { gap:0;border-bottom:2px solid var(--fw-white); }
+.interface-tab { color:var(--fw-white);background:var(--fw-black);border:1px solid var(--fw-white);box-shadow:none; }
+.interface-tab.is-active { color:var(--fw-black);background:var(--fw-white); }
+.interface-screen { border:0;background:transparent;padding:18px; }
+.interface-screen img { border:3px solid var(--fw-white);box-shadow:7px 7px 0 var(--fw-black); }
+.mode-strip article { color:var(--fw-white);background:var(--fw-black);border:1px solid var(--fw-white); }
+.mode-strip article span { color:var(--fw-white); }
+.text-link,.manual-grid a,.download-grid a { color:var(--fw-white); }
+.code-box { color:var(--fw-white);background:var(--fw-black);border:2px solid var(--fw-white); }
+.site-footer,footer { max-width:1040px;margin:auto;color:var(--fw-white);background:var(--fw-black);border-top:2px solid var(--fw-white); }
+@media(max-width:760px){
+ .topbar{min-height:52px}.brand-logo{width:40px;height:40px}nav a{padding:6px;font-size:.82rem}
+ .hero,.section{padding:32px 18px}.hero{min-height:0}.screen-shell img{width:300px}h1{font-size:4rem}
+}
+/* Compact firmware mark and title within the top status bar. */
+.topbar .brand { min-width: 0; gap: 9px; }
+.topbar .brand-logo { display:block; width:36px; height:36px; max-height:36px; object-fit:contain; }
+.topbar .brand-name { color:var(--fw-white); font:700 20px/1 var(--font-pixel); letter-spacing:.08em; white-space:nowrap; }
+@media(max-width:560px){
+  .topbar .brand-logo{width:32px;height:32px;max-height:32px}
+  .topbar .brand-name{font-size:16px;letter-spacing:.04em}
+}
+/* Minimal opening screen: firmware identity and project description only. */
+.hero.hero-simple { display:grid;grid-template-columns:1fr;place-items:center;min-height:620px;text-align:center;padding:64px 24px; }
+.hero-identity { display:flex;flex-direction:column;align-items:center;max-width:720px; }
+.hero-logo { display:block;width:180px;height:180px;object-fit:contain;image-rendering:pixelated;margin-bottom:18px; }
+.hero-name { margin:0 0 30px;font-size:clamp(4rem,10vw,7.5rem);line-height:.72;letter-spacing:.035em;color:var(--fw-white);text-shadow:4px 4px 0 var(--fw-black); }
+.hero-simple .lead { margin:0;max-width:650px;text-align:center; }
+@media(max-width:560px){.hero.hero-simple{min-height:520px}.hero-logo{width:132px;height:132px}.hero-name{font-size:3.8rem}}
+/* Opening screen contains only the firmware emblem. */
+.hero-simple .hero-logo { width:min(42vw,300px);height:auto;margin:0; }
+@media(max-width:560px){.hero-simple .hero-logo{width:min(58vw,220px);height:auto}}
+/* Final opening artwork supplied by KHAV. */
+.hero-simple .hero-logo { width:min(90vw,640px);height:auto;object-fit:contain;image-rendering:auto;border:2px solid var(--fw-white); }
+@media(max-width:560px){.hero-simple .hero-logo{width:min(92vw,640px);height:auto}}
+.topbar > .brand { margin-left:20px; }
+@media(max-width:560px){.topbar > .brand{margin-left:8px}}
+/* Key firmware features arranged in the free field around the opening artwork. */
+.hero-simple .hero-identity{position:relative;width:min(96%,1000px);max-width:1000px;min-height:500px;justify-content:center}
+.hero-features{position:absolute;inset:0;pointer-events:none}
+.feature-label{position:absolute;display:flex;flex-direction:column;min-width:150px;padding:7px 9px;color:var(--fw-white);border-top:2px solid var(--fw-white);background:rgba(83,17,43,.78);text-align:left}
+.feature-label b{font:700 17px/1 var(--font-pixel);letter-spacing:.04em}
+.feature-label i{margin-top:5px;color:var(--fw-light);font:400 14px/1 var(--font-pixel);font-style:normal}
+.feature-1{left:0;top:12%}.feature-2{right:0;top:12%}.feature-3{left:0;top:45%}.feature-4{right:0;top:45%}.feature-5{left:0;bottom:10%}.feature-6{right:0;bottom:10%}
+@media(max-width:850px){
+ .hero-simple .hero-identity{min-height:auto;width:100%;padding:24px 0}
+ .hero-features{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:min(92vw,640px);margin-top:18px}
+ .feature-label{position:static;min-width:0;background:rgba(83,17,43,.88)}
+}
+/* Fill the complete field around the 640×320 artwork with feature panels. */
+@media(min-width:851px){
+ .hero-simple .hero-identity{min-height:540px}
+ .hero-features{display:grid;grid-template-columns:180px 1fr 180px;grid-template-rows:repeat(3,1fr);gap:10px}
+ .feature-label{position:static;width:100%;min-width:0;height:100%;padding:18px 14px;justify-content:center;border:2px solid var(--fw-white);background:rgba(83,17,43,.88)}
+ .feature-label b{font-size:20px;line-height:1.05}.feature-label i{font-size:15px;line-height:1.15}
+ .feature-1{grid-column:1;grid-row:1}.feature-2{grid-column:3;grid-row:1}
+ .feature-3{grid-column:1;grid-row:2}.feature-4{grid-column:3;grid-row:2}
+ .feature-5{grid-column:1;grid-row:3}.feature-6{grid-column:3;grid-row:3}
+}
+/* Feature typography follows the original DRONE. POLY. hero: no boxes. */
+.feature-label,.feature-label:nth-child(n){color:var(--fw-white);background:transparent;border:0;padding:8px;text-shadow:3px 3px 0 var(--fw-black)}
+.feature-label:nth-child(even){color:var(--fw-light)}
+.feature-label b{font:700 clamp(25px,2.6vw,39px)/.82 var(--font-pixel);letter-spacing:-.025em}
+.feature-label i{margin-top:10px;color:inherit;font:400 15px/1.1 var(--font-pixel);text-shadow:2px 2px 0 var(--fw-black)}
+@media(min-width:851px){
+ .hero-features{grid-template-columns:180px 1fr 180px;gap:10px}
+ .feature-label{align-items:flex-start;justify-content:center;width:100%;height:100%;text-align:left}
+ .feature-label:nth-child(even){align-items:flex-end;text-align:right}
+}
+@media(max-width:850px){
+ .feature-label,.feature-label:nth-child(even){align-items:center;text-align:center;background:transparent;border:0}
+}
+/* Three large feature statements above and three below the artwork. */
+@media(min-width:851px){
+ .hero-simple .hero-identity{min-height:660px}
+ .hero-features{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:150px 1fr 150px;column-gap:28px;row-gap:0}
+ .feature-label,.feature-label:nth-child(even){align-items:center;justify-content:center;text-align:center;width:100%;height:150px}
+ .feature-label b{font-size:clamp(38px,4vw,58px);line-height:.8}
+ .feature-label i{font-size:17px;margin-top:13px}
+ .feature-1{grid-column:1;grid-row:1}.feature-2{grid-column:2;grid-row:1}.feature-3{grid-column:3;grid-row:1}
+ .feature-4{grid-column:1;grid-row:3}.feature-5{grid-column:2;grid-row:3}.feature-6{grid-column:3;grid-row:3}
+}
+/* Opening labels return to the first DRONE. POLY. typographic treatment. */
+.hero-features .feature-label{background:transparent;border:0;text-shadow:none}
+.hero-features .feature-label b{font-family:var(--font-pixel);font-weight:700;line-height:.76;letter-spacing:-.065em;color:var(--fw-white);text-shadow:none}
+.hero-features .feature-label:nth-child(even) b{color:#ff96b7;-webkit-text-stroke:1px #ffccdb}
+.hero-features .feature-label i{margin-top:14px;color:var(--fw-white);font:400 12px/1 var(--font-pixel);letter-spacing:.14em;text-transform:uppercase;text-shadow:none;opacity:.78}
+@media(min-width:851px){.hero-features .feature-label b{font-size:clamp(44px,4.8vw,70px)}}
+/* Section 02: keep the 240×240 display frame anchored and inside its column. */
+#instrument .interface{grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:48px;width:100%;align-items:center}
+#instrument .screen-shell.large{justify-self:start;width:min(100%,430px);max-width:430px;overflow:hidden}
+#instrument .screen-shell.large img{display:block;width:100%;max-width:430px;height:auto;margin:0}
+@media(max-width:900px){#instrument .interface{grid-template-columns:1fr;gap:42px}#instrument .screen-shell.large{justify-self:center}}
+/* 03 / SWARM */
+.disorder{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:64px;align-items:center;background:#140b0f!important}
+.disorder-copy>p:not(.section-no){max-width:680px;font-size:18px;line-height:1.5}
+.disorder-steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}.disorder-steps b{padding:9px 11px;color:var(--fw-black);background:var(--fw-white);font:700 14px/1 var(--font-pixel)}
+.disorder-demo{justify-self:center;width:min(100%,480px);position:relative;border:3px solid var(--fw-white);background:var(--fw-black);box-shadow:8px 8px 0 #7f2448}
+.disorder-demo canvas{display:block;width:100%;height:auto;image-rendering:pixelated}
+.disorder-demo span{position:absolute;left:8px;bottom:8px;padding:5px 7px;color:var(--fw-white);background:var(--fw-black);font:700 12px/1 var(--font-pixel)}
+@media(max-width:900px){.disorder{grid-template-columns:1fr;gap:36px}.disorder-demo{justify-self:start}}
+.disorder-steps{align-items:center;column-gap:14px;row-gap:10px}.disorder-steps>span{color:var(--fw-light);font:700 18px/1 var(--font-pixel)}
+/* 04 / EMULATOR */
+.emulator{background:#6f1e3d!important}.emulator-heading{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end;margin-bottom:54px}.emulator-heading>p{max-width:480px;font-size:19px;line-height:1.5}
+.emulator-layout{display:grid;grid-template-columns:minmax(380px,1.15fr) minmax(260px,.85fr);gap:36px;align-items:stretch}.emulator-window{display:flex;flex-direction:column;color:var(--fw-white);background:var(--fw-black);border:3px solid var(--fw-white);text-decoration:none;box-shadow:9px 9px 0 #3d0b22;transition:transform .15s}.emulator-window:hover{transform:translate(3px,3px);box-shadow:6px 6px 0 #3d0b22}.emulator-bar{display:flex;justify-content:space-between;gap:20px;padding:10px 12px;border-bottom:2px solid var(--fw-white);font:14px/1 var(--font-pixel)}.emulator-bar span{color:var(--fw-light)}.emulator-screen{position:relative;display:grid;place-items:center;min-height:330px;padding:24px;background:#8b2d4d}.emulator-screen img{display:block;width:300px;max-width:82%;height:auto;image-rendering:pixelated;border:2px solid var(--fw-white)}.emulator-play{position:absolute;display:grid;place-items:center;width:70px;height:54px;color:var(--fw-black);background:var(--fw-white);font:30px/1 sans-serif}.emulator-keys{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;padding:13px;border-top:2px solid var(--fw-white)}.emulator-keys i{height:22px;background:var(--fw-key);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}.emulator-window>strong{padding:14px;text-align:center;color:var(--fw-black);background:var(--fw-white);font:700 16px/1 var(--font-pixel)}
+.emulator-notes{display:grid;grid-template-rows:repeat(4,1fr);gap:2px;background:var(--fw-white);border:2px solid var(--fw-white)}.emulator-notes article{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;padding:18px;background:#51142e}.emulator-notes b{color:var(--fw-light);font:700 18px/1 var(--font-pixel)}.emulator-notes span{color:var(--fw-white);line-height:1.3}
+@media(max-width:900px){.emulator-heading,.emulator-layout{grid-template-columns:1fr}.emulator-screen{min-height:290px}}
+@media(max-width:560px){.emulator-bar{font-size:11px}.emulator-screen img{width:240px}.emulator-notes article{grid-template-columns:1fr;gap:7px}}
+/* Embedded playable fm1-emu. */
+.emulator-embed{display:flex;flex-direction:column;min-width:0;background:var(--fw-black);border:3px solid var(--fw-white);box-shadow:9px 9px 0 #3d0b22}
+.emulator-embed iframe{display:block;width:100%;height:680px;border:0;background:#111}
+.emulator-embed>a{padding:14px;color:var(--fw-black);background:var(--fw-white);font:700 15px/1 var(--font-pixel);text-align:center;text-decoration:none}
+.emulator-embed>a:hover{background:var(--fw-light)}
+@media(max-width:900px){.emulator-embed iframe{height:720px}}
+@media(max-width:560px){.emulator-embed iframe{height:640px}}
+/* Page 04: descriptions above, interface-only emulator below. */
+.emulator-layout{display:flex;flex-direction:column;gap:28px}
+.emulator-notes{order:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:none;gap:2px}
+.emulator-notes article{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:12px;min-height:150px;padding:20px}
+.emulator-embed{order:2;width:100%}
+.emulator-embed iframe{height:760px}
+@media(max-width:900px){.emulator-notes{grid-template-columns:repeat(2,minmax(0,1fr))}.emulator-embed iframe{height:720px}}
+@media(max-width:560px){.emulator-notes{grid-template-columns:1fr}.emulator-notes article{min-height:0}.emulator-embed iframe{height:650px}}
+.emulator-notes .emulator-warning{background:#fff0f2;color:var(--fw-black)}.emulator-notes .emulator-warning b{color:#a00026}.emulator-notes .emulator-warning span{color:var(--fw-black);font-weight:700}
+.emulator-notes .emulator-warning{background:var(--fw-black);color:var(--fw-white);border:3px solid #d21f45}.emulator-notes .emulator-warning b{color:#ff405f}.emulator-notes .emulator-warning span{color:var(--fw-white)}
+/* 06 / INSTALL */
+.install-v2{background:#281019!important}.install-v2-head{margin-bottom:38px}.install-warning{padding:26px;border:3px solid #d21f45;background:var(--fw-black);max-width:900px}.install-warning b{color:#ff405f;font:700 21px/1 var(--font-pixel)}.install-warning p{margin:16px 0 0;color:var(--fw-white);font-size:19px;line-height:1.45}.install-v2-actions{display:grid;grid-template-columns:1.35fr .65fr;gap:14px;margin-top:28px}.install-v2-actions a{display:flex;flex-direction:column;justify-content:space-between;min-height:150px;padding:24px;text-decoration:none;border:3px solid var(--fw-white)}.install-v2-actions strong{font:700 clamp(22px,3vw,38px)/.9 var(--font-pixel)}.install-v2-actions span{margin-top:24px;font:400 15px/1 var(--font-pixel)}.hub-install{color:var(--fw-black);background:var(--fw-white)}.hub-install:hover{background:var(--fw-light)}.local-install{color:var(--fw-white);background:#57172f}.local-install:hover{background:#711f3e}@media(max-width:760px){.install-v2-actions{grid-template-columns:1fr}.install-v2-actions a{min-height:130px}}
+/* Opening screen uses the same BLUSH VEIN field colour as the other sections. */
+.hero.hero-simple{background:#6f1e3d;border-bottom:2px solid var(--fw-white)}
+/* 07 / CONTINUATION */
+.continuation{background:#0d090b!important}.continuation-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start;margin-top:42px}.continuation-title h2{margin:0;color:var(--fw-light);font-size:clamp(48px,7vw,98px);line-height:.82;text-shadow:3px 3px 0 #6f1e3d}.continuation-title>span{display:inline-block;margin-top:28px;padding-top:10px;border-top:2px solid var(--fw-white);color:var(--fw-white);font:700 16px/1 var(--font-pixel)}.continuation-letter{border-left:2px solid var(--fw-light);padding-left:32px}.continuation-letter p{margin:0 0 24px;font-size:19px;line-height:1.5}.continuation-status{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:58px;background:var(--fw-white);border:2px solid var(--fw-white)}.continuation-status div{display:flex;flex-direction:column;min-height:130px;padding:20px;background:#57172f}.continuation-status b{color:var(--fw-light);font:700 clamp(24px,3vw,40px)/1 var(--font-pixel)}.continuation-status span{margin-top:auto;color:var(--fw-white);font:400 13px/1.2 var(--font-pixel);letter-spacing:.08em}@media(max-width:800px){.continuation-grid{grid-template-columns:1fr;gap:42px}.continuation-letter{padding-left:20px}.continuation-status{grid-template-columns:1fr}.continuation-status div{min-height:110px}}
+/* 04 / COLOURWAYS */
+.colourways{background:#421426!important}.colourways-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:44px}.theme-instruction{padding:24px;border-left:3px solid var(--fw-light);background:rgba(8,8,11,.48)}.theme-instruction b{color:var(--fw-light);font:700 28px/1 var(--font-pixel)}.theme-instruction p{margin:15px 0 0;font-size:17px;line-height:1.45}.theme-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.theme-grid article{position:relative;display:flex;flex-direction:column;min-height:150px;padding:16px;color:var(--e);background:var(--t);border:2px solid rgba(255,255,255,.8);overflow:hidden}.theme-grid b{position:relative;z-index:1;font:700 20px/1 var(--font-pixel);text-shadow:1px 1px 0 rgba(0,0,0,.55)}.theme-grid article>div{display:grid;grid-template-columns:repeat(5,1fr);height:62px;margin-top:auto;border:1px solid rgba(255,255,255,.65)}.theme-grid i:nth-child(1){background:var(--a)}.theme-grid i:nth-child(2){background:var(--b)}.theme-grid i:nth-child(3){background:var(--c)}.theme-grid i:nth-child(4){background:var(--d)}.theme-grid i:nth-child(5){background:var(--e)}.theme-grid em{position:absolute;right:9px;top:9px;padding:4px 5px;color:#08080b;background:#fff;font:700 10px/1 var(--font-pixel);font-style:normal}.theme-current{outline:3px solid var(--fw-light);outline-offset:-6px}@media(max-width:900px){.colourways-head{grid-template-columns:1fr}.theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:620px){.theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.theme-grid article{min-height:130px}.theme-grid b{font-size:17px}}
+/* Keep the COLORWAYS header close to the top edge of page 04. */
+.colourways{padding-top:22px}
+.colourways .colourways-head{align-items:start}
+
+/* Interactive website COLORWAYS. The first and fifth palette colours form the
+   page field and ink, so light and dark firmware themes remain legible. */
+.theme-grid article[role="button"]{cursor:pointer;transition:transform .12s,outline-color .12s}
+.theme-grid article[role="button"]:hover{transform:translateY(-3px)}
+.theme-grid article[role="button"]:focus-visible{outline:4px solid var(--theme-e,#fff);outline-offset:2px}
+html[data-site-theme] .topbar{background:var(--theme-bg);border-color:var(--theme-e)}
+html[data-site-theme] main{background:var(--theme-a);border-color:var(--theme-c)}
+html[data-site-theme] .hero.hero-simple{background:var(--theme-a);border-color:var(--theme-e)}
+html[data-site-theme] .section,
+html[data-site-theme] .section:nth-of-type(even),
+html[data-site-theme] .manifesto,
+html[data-site-theme] .disorder,
+html[data-site-theme] .colourways,
+html[data-site-theme] .emulator,
+html[data-site-theme] .install-v2,
+html[data-site-theme] .continuation{background:var(--theme-bg)!important;border-color:var(--theme-e)}
+html[data-site-theme] .facts div,
+html[data-site-theme] .feature-stack article,
+html[data-site-theme] .emulator-notes article,
+html[data-site-theme] .continuation-status div{background:var(--theme-a)}
+html[data-site-theme] .theme-instruction,
+html[data-site-theme] .lead{background:var(--theme-a)}
+html[data-site-theme] .button,
+html[data-site-theme] .interface-tab,
+html[data-site-theme] .mode-strip article{background:var(--theme-a);color:var(--theme-e);border-color:var(--theme-e)}
+html[data-site-theme] .button.primary,
+html[data-site-theme] .interface-tab.is-active{background:var(--theme-e);color:var(--theme-bg)}
+html[data-site-theme] footer{background:var(--theme-bg);border-color:var(--theme-e)}
+
+/* The cream outer surround and site chrome stay BLUSH VEIN. Only content
+   pages participate in firmware colourway switching. */
+html[data-site-theme] .topbar{background:var(--theme-dark);border-color:var(--theme-on-dark);color:var(--theme-on-dark)}
+html[data-site-theme] .topbar .brand-name,
+html[data-site-theme] .topbar a,
+html[data-site-theme] .topbar button{color:var(--theme-on-dark)}
+html[data-site-theme] footer{background:var(--theme-dark);border-color:var(--theme-on-dark);color:var(--theme-on-dark)}
+html[data-site-theme] footer a,
+html[data-site-theme] footer p{color:var(--theme-on-dark)}
+
+/* Replace every decorative BLUSH VEIN text accent with the selected palette. */
+html[data-site-theme] .hero-features .feature-label:nth-child(even) b,
+html[data-site-theme] .eyebrow,
+html[data-site-theme] .section-no,
+html[data-site-theme] .page-index,
+html[data-site-theme] .facts strong,
+html[data-site-theme] .feature-stack b,
+html[data-site-theme] .docs-grid span,
+html[data-site-theme] .install .section-no,
+html[data-site-theme] .install li b,
+html[data-site-theme] .page-tabs button[aria-selected="true"]{color:var(--theme-d);-webkit-text-stroke-color:var(--theme-e)}
+html[data-site-theme] .knobs span{border-color:var(--theme-d)}
+
+/* Compact firmware colourway selector on 02 / INTERFACE. */
+.interface-themes{margin-top:42px;padding-top:20px;border-top:2px solid var(--fw-white)}
+.interface-themes-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:12px}
+.interface-themes-head b{color:var(--fw-light);font:700 22px/1 var(--font-pixel)}
+.interface-themes-head span{font:400 12px/1.25 var(--font-pixel);text-align:right;opacity:.82}
+.interface-themes .theme-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.interface-themes .theme-grid article{min-height:74px;padding:9px;border-width:1px}
+.interface-themes .theme-grid b{font-size:13px;line-height:.9}
+.interface-themes .theme-grid article>div{height:22px;margin-top:auto}
+.interface-themes .theme-grid em{top:5px;right:5px;padding:3px;font-size:8px}
+@media(max-width:760px){.interface-themes .theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.interface-themes-head{align-items:flex-start;flex-direction:column}.interface-themes-head span{text-align:left}}
+.interface-themes{width:100%;grid-column:1/-1}
+
+/* BLUSH VEIN keeps the site's original cream surround. Other colourways use
+   their own middle palette colour around the central pages. */
+html[data-site-theme] body{background:var(--theme-c)}
+/* BLUSH VEIN surround uses the same middle palette position as every theme. */
+body{background:#da8fa5}
+html[data-site-theme] body{background:var(--theme-c)}
+
+/* 02 / INTERFACE page tabs follow the selected firmware palette. */
+.page-tabs button{background:#5e1f35;border-color:#da8fa5;color:#ffeef3}
+.page-tabs button[aria-selected="true"]{background:#ffeef3;border-color:#ffeef3;color:#822a46}
+html[data-site-theme] .page-tabs button{background:var(--theme-a);border-color:var(--theme-c);color:var(--theme-e)}
+html[data-site-theme] .page-tabs button[aria-selected="true"]{background:var(--theme-e);border-color:var(--theme-e);color:var(--theme-bg)}
+
+/* 06 / DOCUMENTATION cards follow the selected firmware palette. */
+.docs-grid{background:#da8fa5}
+.docs-grid a{background:#5e1f35;border-color:#da8fa5;color:#ffeef3}
+.docs-grid a:hover{background:#822a46}
+.docs-grid span{color:#f4c4d1}
+html[data-site-theme] .docs-grid{background:var(--theme-c)}
+html[data-site-theme] .docs-grid a{background:var(--theme-a);border-color:var(--theme-c);color:var(--theme-e)}
+html[data-site-theme] .docs-grid a:hover{background:var(--theme-bg)}
+html[data-site-theme] .docs-grid span{color:var(--theme-d);-webkit-text-stroke:0}
+
+/* 04 / EMULATOR — the NO SOUND? warning is semantic, not decorative. Keep
+   its original BLUSH VEIN warning treatment in every website colourway. */
+.emulator-notes .emulator-warning,
+html[data-site-theme] .emulator-notes .emulator-warning{background:#08080b;color:#fff7f7;border:3px solid #d21f45}
+.emulator-notes .emulator-warning b,
+html[data-site-theme] .emulator-notes .emulator-warning b{color:#ff405f;-webkit-text-stroke:0}
+.emulator-notes .emulator-warning span,
+html[data-site-theme] .emulator-notes .emulator-warning span{color:#fff7f7}
+
+/* Full-page typographic opening: no framed image and no artwork background. */
+.hero.hero-simple{min-height:calc(100vh - 58px);padding:32px 24px;overflow:hidden}
+.hero-simple .hero-identity{width:100%;max-width:none;min-height:calc(100vh - 122px)}
+.hero-wordmark{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--fw-white);font-family:var(--font-pixel);text-transform:uppercase}
+.hero-wordmark strong{font-size:clamp(76px,15vw,190px);font-weight:400;line-height:.72;letter-spacing:-.055em}
+.hero-wordmark span{align-self:flex-end;margin:22px 4% 0 0;font-size:clamp(18px,3.2vw,42px);font-weight:700;line-height:1;letter-spacing:.18em;text-transform:none}
+html[data-site-theme] .hero-wordmark{color:var(--theme-e)}
+@media(max-width:760px){.hero.hero-simple{min-height:calc(100svh - 58px);padding:24px 14px}.hero-simple .hero-identity{min-height:calc(100svh - 106px)}.hero-wordmark strong{font-size:clamp(58px,19vw,110px)}.hero-wordmark span{margin-top:16px;margin-right:2%;font-size:clamp(16px,5vw,28px)}}
+.hero-symbol{display:block;width:clamp(150px,23vh,250px);height:auto;margin:0 0 clamp(20px,4vh,42px);overflow:visible}
+@media(max-width:760px){.hero-symbol{width:clamp(128px,22vh,190px);margin-bottom:24px}}
+.hero-symbol{image-rendering:pixelated;image-rendering:crisp-edges}
+
+/* Firmware-style black keyline around the complete opening identity. */
+.hero-symbol{filter:drop-shadow(3px 0 0 #08080b) drop-shadow(-3px 0 0 #08080b) drop-shadow(0 3px 0 #08080b) drop-shadow(0 -3px 0 #08080b)}
+.hero-wordmark strong,.hero-wordmark span{-webkit-text-stroke:3px #08080b;paint-order:stroke fill; text-shadow:3px 3px 0 #08080b}
+@media(max-width:760px){.hero-symbol{filter:drop-shadow(2px 0 0 #08080b) drop-shadow(-2px 0 0 #08080b) drop-shadow(0 2px 0 #08080b) drop-shadow(0 -2px 0 #08080b)}.hero-wordmark strong,.hero-wordmark span{-webkit-text-stroke:2px #08080b;text-shadow:2px 2px 0 #08080b}}
+.hero-features .feature-label b,.hero-features .feature-label i{-webkit-text-stroke:2px #08080b;paint-order:stroke fill;text-shadow:2px 2px 0 #08080b}
+.hero-features .feature-label i{-webkit-text-stroke:1px #08080b;text-shadow:1px 1px 0 #08080b}
+
+/* 05 / DEMO — DEEP BLUE on the left, PORCELAIN on the right. */
+.demo,html[data-site-theme] .demo{background:linear-gradient(90deg,#1a8bd7 0 50%,#f0f1f5 50% 100%)}
+.demo .section-head{width:46%;color:#fff}
+.demo .section-no,html[data-site-theme] .demo .section-no{color:#e2f1fc;-webkit-text-stroke:0}
+.demo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,4vw,56px)}
+.demo-video{margin:0;min-width:0}
+.demo-video video{display:block;width:100%;aspect-ratio:1;background:#08080b;border:3px solid;object-fit:cover}
+.demo-video:first-child video{border-color:#fff;box-shadow:10px 10px 0 #0c588f}
+.demo-video:last-child video{border-color:#101216;box-shadow:10px 10px 0 #c4c7cd}
+.demo-video figcaption{margin-top:18px;font:700 13px/1 var(--font-pixel);letter-spacing:.16em}
+.demo-video:first-child figcaption{color:#fff;text-shadow:2px 2px 0 #101216}
+.demo-video:last-child figcaption{color:#fff;text-shadow:2px 2px 0 #101216}
+@media(max-width:760px){.demo,html[data-site-theme] .demo{background:linear-gradient(180deg,#1a8bd7 0 50%,#f0f1f5 50% 100%)}.demo .section-head{width:100%}.demo-grid{grid-template-columns:1fr}.demo-video:first-child video{box-shadow:6px 6px 0 #0c588f}.demo-video:last-child video{box-shadow:6px 6px 0 #c4c7cd}}
+
+/* Unified small-copy treatment: white type with the DEMO label keyline. */
+.section p,
+.section span,
+.section i,
+.section button,
+.section figcaption,
+.section .knobs span,
+.section .page-tabs button,
+.section .disorder-steps b,
+.section .emulator-notes b,
+.section .install-warning b,
+.section .feature-stack b,
+.topbar a,
+.topbar button,
+footer,
+footer p,
+footer span{
+  color:#fff!important;
+  -webkit-text-stroke:0!important;
+  text-shadow:2px 2px 0 #101216!important;
+}
+/* Semantic warning remains red while retaining the same black keyline. */
+.emulator-notes .emulator-warning b,
+html[data-site-theme] .emulator-notes .emulator-warning b{
+  color:#ff405f!important;
+  text-shadow:2px 2px 0 #101216!important;
+}
+
+/* 01 / SIGNAL — black keyline around every letter of the main statement. */
+.manifesto blockquote{
+  -webkit-text-stroke:2px #08080b;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 02 / INTERFACE — match the SIGNAL statement keyline. */
+#instrument .section-head h2{
+  -webkit-text-stroke:2px #08080b;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 02 / INTERFACE — selected page tab is always black. */
+.page-tabs button[aria-selected="true"],
+html[data-site-theme] .page-tabs button[aria-selected="true"]{
+  background:#08080b!important;
+  border-color:#08080b!important;
+  color:#fff!important;
+}
+
+/* 02 / INTERFACE — keyline the large title of the selected page. */
+.page-copy h3{
+  -webkit-text-stroke:2px #08080b;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 03 / SWARM — instruction rectangles follow the selected colourway. */
+.disorder-steps b{background:#5e1f35}
+html[data-site-theme] .disorder-steps b{background:var(--theme-a)}
+
+/* 04 / EMULATOR — keyline the main heading. */
+.emulator-heading h2{
+  -webkit-text-stroke:2px #08080b;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 05 / DEMO — one-line outlined heading across the split page. */
+.demo .section-head{width:100%}
+.demo .section-head h2{
+  font-size:clamp(16px,4.8vw,72px);
+  letter-spacing:-.035em;
+  white-space:nowrap;
+  -webkit-text-stroke:2px #08080b;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 06 / DOCUMENTATION — keyline the main heading. */
+#docs .section-head h2{
+  -webkit-text-stroke:2px #08080b;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 07 / INSTALL — red warning keyline with a black offset shadow. */
+.install-v2-head h2{
+  -webkit-text-stroke:2px #d21f45;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 03 / SWARM — BLUSH VEIN uses its own keyline; other themes use black. */
+.disorder-copy h2{
+  -webkit-text-stroke:2px #822a46;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #822a46;
+}
+html[data-site-theme] .disorder-copy h2{
+  -webkit-text-stroke-color:#08080b;
+  text-shadow:2px 2px 0 #08080b;
+}
+
+/* 03 / STEP — release guide */
+.step-guide{background:#120a0e}
+.step-guide-head{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:end;margin-bottom:62px}
+.step-guide-head h2{margin:20px 0 0;font-size:clamp(48px,7vw,104px);line-height:.82;color:var(--fw-white);-webkit-text-stroke:2px #08080b;paint-order:stroke fill;text-shadow:2px 2px 0 #08080b}
+.step-guide-head>p{margin:0;font-size:19px;line-height:1.45}
+.step-guide-layout{display:grid;grid-template-columns:minmax(280px,.72fr) 1.28fr;gap:56px;align-items:start}
+.step-screen{position:sticky;top:108px;width:min(100%,520px);margin:auto}
+.step-screen img{width:100%;image-rendering:pixelated}
+.step-flow{display:grid;gap:2px;background:var(--fw-white);border:2px solid var(--fw-white)}
+.step-flow article{display:grid;grid-template-columns:68px 1fr;gap:20px;padding:24px;background:#57172f}
+.step-flow article>span{color:var(--fw-light);font:700 34px/1 var(--font-pixel)}
+.step-flow b,.step-reference b{color:var(--fw-white);font:700 19px/1 var(--font-pixel);letter-spacing:.04em}
+.step-flow p,.step-reference p{margin:10px 0 0;font-size:16px;line-height:1.42}
+.step-reference{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:42px;background:var(--fw-white);border:2px solid var(--fw-white)}
+.step-reference article{min-height:190px;padding:25px;background:#2b101b}
+html[data-site-theme] .step-flow article{background:var(--theme-a)}
+html[data-site-theme] .step-reference article{background:var(--theme-dark)}
+@media(max-width:850px){.step-guide-head,.step-guide-layout{grid-template-columns:1fr}.step-guide-head{gap:28px}.step-screen{position:relative;top:auto;max-width:460px}.step-reference{grid-template-columns:1fr}.step-reference article{min-height:0}}
+
+/* 03 / STEP — performance-layer footnote. */
+.step-footnote{margin-top:28px;padding:18px 20px;border:2px solid rgba(255,255,255,.72)}
+.step-footnote p{margin:0;max-width:900px;font-size:15px;line-height:1.45}
+
+/* 06 / DEMO — DEEP BLUE accent on the second heading word and DEMO 02. */
+.demo .section-head h2 span,
+html[data-site-theme] .demo .section-head h2 span{
+  color:#1a8bd7!important;
+  -webkit-text-stroke:2px #08080b!important;
+  paint-order:stroke fill;
+  text-shadow:2px 2px 0 #08080b!important;
+}
+.demo-video:last-child figcaption,
+html[data-site-theme] .demo-video:last-child figcaption{
+  color:#1a8bd7!important;
+}
+
+/* Heading correction for sections 02 and 06.
+   The page has a fixed maximum content width, so vw-based type could become
+   wider than the page on large desktop windows. Cap these headings by the
+   content width, not only by the browser viewport. */
+#instrument .section-head h2{
+  max-width:100%;
+  font-size:36px!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere;
+}
+.demo .section-head>div{
+  width:100%;
+}
+.demo .section-head h2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:clamp(18px,4vw,56px);
+  width:100%;
+  text-align:right;
+  max-width:100%;
+  font-size:38px!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere;
+}
+.demo .section-head h2 span{
+  display:block;
+  grid-column:2;
+  text-align:left;
+}
+@media(max-width:760px){
+  #instrument .section-head h2{
+    white-space:normal;
+    overflow-wrap:normal;
+    line-height:.95;
+  }
+  .demo .section-head h2{
+    grid-template-columns:1fr;
+    white-space:normal;
+    line-height:.95;
+  }
+  .demo .section-head h2 span{
+    display:block;
+    grid-column:1;
+  }
+}
