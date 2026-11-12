@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7f2947">
+  <meta name="description" content="ARTIHIVE 2.0.4 — eight-voice experimental drone, polyphonic FM synthesizer and STEP sequencer firmware for the M-VAVE FM-1.">
+  <title>ARTIHIVE 2.0.4 — FM-1 firmware by KHAV</title>
+  <link rel="stylesheet" href="styles.css?v=204-heading-fix-1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="ARTIHIVE home"><span class="brand-name">ARTIHIVE</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#instrument" data-en="Instrument" data-ru="Инструмент">Instrument</a>
+      <a href="#play" data-en="Play" data-ru="Играть">Play</a>
+      <a href="https://thefirmwarehub.com/#fw-artihive" target="_blank" rel="noopener" data-en="Install" data-ru="Установка">Install</a>
+      <a href="#docs" data-en="Docs" data-ru="Документы">Docs</a>
+    </nav>
+    <button class="lang" id="lang" type="button" aria-label="Switch language">RU</button>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-simple" id="top">
+      <div class="hero-identity reveal">
+        <div class="hero-wordmark" role="img" aria-label="ARTIHIVE by KHAV">
+          <svg class="hero-symbol" viewBox="0 0 240 240" shape-rendering="crispEdges" aria-hidden="true">
+            <defs><path id="pixel-node" d="M-7-13H7V-10H10V-7H13V7H10V10H7V13H-7V10H-10V7H-13V-7H-10V-10H-7Z"/></defs>
+            <g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="miter">
+              <!-- Exact topology used by firmware draw_boot_logo_raw():
+                   perimeter, even-node diamond, odd-node square and eight centre spokes. -->
+              <path d="M120 18 190 50 222 120 190 190 120 222 50 190 18 120 50 50Z"/>
+              <path d="M120 18 222 120 120 222 18 120Z"/>
+              <path d="M190 50 190 190 50 190 50 50Z"/>
+              <path d="M120 120 120 18M120 120 190 50M120 120 222 120M120 120 190 190M120 120 120 222M120 120 50 190M120 120 18 120M120 120 50 50"/>
+            </g>
+            <g fill="currentColor">
+              <use href="#pixel-node" transform="translate(120 18)"/><use href="#pixel-node" transform="translate(190 50)"/>
+              <use href="#pixel-node" transform="translate(222 120)"/><use href="#pixel-node" transform="translate(190 190)"/>
+              <use href="#pixel-node" transform="translate(120 222)"/><use href="#pixel-node" transform="translate(50 190)"/>
+              <use href="#pixel-node" transform="translate(18 120)"/><use href="#pixel-node" transform="translate(50 50)"/>
+              <use href="#pixel-node" transform="translate(120 120) scale(1.15)"/>
+            </g>
+          </svg>
+          <strong>ARTIHIVE</strong>
+          <span>byKHAV</span>
+        </div>
+        <div class="hero-features" aria-label="ARTIHIVE features">
+          <span class="feature-label feature-1"><b>8 VOICES</b><i data-en="digital swarm" data-ru="цифровой рой">digital swarm</i></span>
+          <span class="feature-label feature-2"><b>4 FM PAIRS</b><i data-en="mutual modulation" data-ru="взаимная модуляция">mutual modulation</i></span>
+          <span class="feature-label feature-3"><b>DRONE + POLY</b><i data-en="two performance modes" data-ru="два режима игры">two performance modes</i></span>
+          <span class="feature-label feature-4"><b>ARP + STEP</b><i data-en="10 patterns / 1–16 steps" data-ru="10 паттернов / 1–16 шагов">10 patterns / 1–16 steps</i></span>
+          <span class="feature-label feature-5"><b>HYPER LFO</b><i data-en="OR / AND logic" data-ru="логика OR / AND">OR / AND logic</i></span>
+          <span class="feature-label feature-6"><b>DUAL DELAY</b><i data-en="smooth TIME changes" data-ru="плавные изменения TIME">smooth TIME changes</i></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto section">
+      <p class="section-no">01 / SIGNAL</p>
+      <blockquote data-en="ARTIHIVE is a digital artifact inhabited by a swarm of eight signals. They interact and form a self-organizing system—like a hive or an ant colony." data-ru="ARTIHIVE — цифровой артефакт, внутри которого живёт рой из восьми сигналов. Они взаимодействуют и образуют самоорганизующуюся систему — подобно улью или муравейнику.">ARTIHIVE is a digital artifact inhabited by a swarm of eight signals. They interact and form a self-organizing system—like a hive or an ant colony.</blockquote>
+      <div class="facts">
+        <div><strong>8 VOICES</strong><span data-en="Digital swarm" data-ru="Цифровой рой">Digital swarm</span></div>
+        <div><strong>4 FM PAIRS</strong><span data-en="Mutual influence" data-ru="Взаимное влияние">Mutual influence</span></div>
+        <div><strong>1 SYSTEM</strong><span data-en="Self-organization" data-ru="Самоорганизация">Self-organization</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="instrument">
+      <div class="section-head"><div><p class="section-no">02 / INTERFACE</p><h2 data-en="One instrument - twelve components" data-ru="Один инструмент - двенадцать составляющих">One instrument - twelve components</h2></div><p data-en="Every page keeps four direct controls and a live visual field. Select a page to inspect its role." data-ru="На каждой странице — четыре прямых параметра и живое поле индикации. Выберите страницу, чтобы увидеть её назначение.">Every page keeps four direct controls and a live visual field. Select a page to inspect its role.</p></div>
+      <div class="interface">
+        <div class="screen-shell large"><img id="page-image" src="assets/screens/drone.png?v=204-release-themes" width="240" height="240" alt="DRONE interface page"></div>
+        <div class="page-copy">
+          <p class="page-index" id="page-index">01 / 12</p>
+          <h3 id="page-title">DRONE</h3>
+          <p id="page-description">Eight independently tuned voices, four FM pairs and a live output oscilloscope.</p>
+          <div class="knobs" id="page-knobs"><span>TUNE</span><span>FINE</span><span>SHARP</span><span>MOD</span></div>
+          <div class="page-tabs" id="page-tabs" role="tablist" aria-label="Interface pages"></div>
+        </div>
+      </div>
+
+      <div class="interface-themes" id="themes">
+        <div class="interface-themes-head">
+          <b data-en="COLOURWAY" data-ru="ЦВЕТОВАЯ ТЕМА">COLOURWAY</b>
+          <span data-en="Select a firmware palette · ARP > 0.7 s on the instrument" data-ru="Выберите палитру прошивки · ARP > 0,7 с на инструменте">Select a firmware palette · ARP &gt; 0.7 s on the instrument</span>
+        </div>
+      <div class="theme-grid">
+        <article class="theme-current" style="--t:#822a46;--a:#5e1f35;--b:#b15b77;--c:#da8fa5;--d:#f4c4d1;--e:#ffeef3"><b>BLUSH VEIN</b><em data-en="SITE THEME" data-ru="ТЕМА САЙТА">SITE THEME</em><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#cdb7e2;--a:#b097c9;--b:#8b70a9;--c:#654c82;--d:#442f5e;--e:#251937"><b>LAVENDER</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#c9e2a0;--a:#a9c57f;--b:#809f59;--c:#5b793a;--d:#395222;--e:#1d2e11"><b>LIME VEIL</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#efe0b8;--a:#cfbc91;--b:#a89167;--c:#7e6843;--d:#524026;--e:#2d2214"><b>VANILLA</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#d0d7dc;--a:#b2bcc4;--b:#8b99a4;--c:#647481;--d:#414f5b;--e:#222b33"><b>PEARL GREY</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#09051a;--a:#311b5c;--b:#7953c4;--c:#ae89ef;--d:#d8c8ff;--e:#f4f2ff"><b>ULTRAVIOLET</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#1a8bd7;--a:#0c588f;--b:#88bee4;--c:#bedef5;--d:#e2f1fc;--e:#fff"><b>DEEP BLUE</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#f0f1f5;--a:#c4c7cd;--b:#969ba3;--c:#686e77;--d:#3a3e46;--e:#101216"><b>PORCELAIN</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#f0a8be;--a:#c67e96;--b:#9e5870;--c:#70384c;--d:#3e1e2a;--e:#140e12"><b>ROSE</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#bbd4b7;--a:#92ac8f;--b:#6c856a;--c:#4a5e49;--d:#2a362a;--e:#101410"><b>TOXIC GREEN</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#e87620;--a:#b85612;--b:#923e0a;--c:#662804;--d:#3a1602;--e:#140c08"><b>EMBER</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article style="--t:#141518;--a:#3e3c34;--b:#706c5c;--c:#a49e84;--d:#d4ceb0;--e:#f0ead0"><b>CARBON</b><div><i></i><i></i><i></i><i></i><i></i></div></article>
+      </div>
+      </div>
+    </section>
+
+    <section class="section step-guide" id="step-guide">
+      <div class="step-guide-head">
+        <div><p class="section-no">03 / STEP</p><h2 data-en="Build a sequence" data-ru="Соберите секвенцию">Build a sequence</h2></div>
+        <p data-en="STEP is a ten-pattern sequencer for notes, chords and rests. Every event remembers its recorded octave; patterns can run alone or as a looping chain." data-ru="STEP — секвенсор на десять паттернов для нот, аккордов и пауз. Каждое событие сохраняет записанную октаву; паттерны могут играть отдельно или объединяться в зацикленную цепочку.">STEP is a ten-pattern sequencer for notes, chords and rests. Every event remembers its recorded octave; patterns can run alone or as a looping chain.</p>
+      </div>
+      <div class="step-guide-layout">
+        <div class="screen-shell step-screen"><img src="assets/screens/themes/blush-vein/step.png?v=204-release-themes" width="240" height="240" alt="ARTIHIVE 2.0.4 STEP sequencer page"></div>
+        <div class="step-flow">
+          <article><span>01</span><div><b data-en="OPEN STEP" data-ru="ОТКРОЙТЕ STEP">OPEN STEP</b><p data-en="Press SEQ. PLAY starts or stops the sequence; stopping returns the position indicator to step one." data-ru="Нажмите SEQ. PLAY запускает или останавливает секвенцию; после остановки указатель возвращается к первому шагу.">Press SEQ. PLAY starts or stops the sequence; stopping returns the position indicator to step one.</p></div></article>
+          <article><span>02</span><div><b data-en="CHOOSE A PATTERN" data-ru="ВЫБЕРИТЕ ПАТТЕРН">CHOOSE A PATTERN</b><p data-en="Hold SEQ and press one of the first ten black keys. The display confirms pattern 1–10; every new bank starts empty." data-ru="Удерживайте SEQ и нажмите одну из первых десяти чёрных клавиш. Экран подтвердит паттерн 1–10; каждый новый банк изначально пуст.">Hold SEQ and press one of the first ten black keys. The display confirms pattern 1–10; every new bank starts empty.</p></div></article>
+          <article><span>03</span><div><b data-en="RECORD EVENTS" data-ru="ЗАПИШИТЕ СОБЫТИЯ">RECORD EVENTS</b><p data-en="While stopped, play a note or a chord to write it at the current step. In POLY, hold SEQ and press the rightmost black key to write REST." data-ru="Во время остановки сыграйте ноту или аккорд, чтобы записать их в текущий шаг. В POLY удерживайте SEQ и нажмите крайнюю правую чёрную клавишу, чтобы записать REST.">While stopped, play a note or a chord to write it at the current step. In POLY, hold SEQ and press the rightmost black key to write REST.</p></div></article>
+          <article><span>04</span><div><b data-en="EDIT AND PLAY" data-ru="РЕДАКТИРУЙТЕ И ИГРАЙТЕ">EDIT AND PLAY</b><p data-en="With transport stopped, hold SEQ and use OCT−/OCT+ to move through steps. BPM, LENGTH and GATE shape playback without changing recorded pitches." data-ru="При остановленном транспорте удерживайте SEQ и используйте OCT−/OCT+, чтобы перемещаться по шагам. BPM, LENGTH и GATE меняют воспроизведение, не изменяя записанные высоты.">With transport stopped, hold SEQ and use OCT−/OCT+ to move through steps. BPM, LENGTH and GATE shape playback without changing recorded pitches.</p></div></article>
+        </div>
+      </div>
+      <div class="step-reference">
+        <article><b data-en="DRONE / POLY" data-ru="DRONE / POLY">DRONE / POLY</b><p data-en="SEQ + HOME switches STEP between DRONE and POLY. You may change the live POLY octave while STEP runs; the sequence keeps its recorded pitch." data-ru="SEQ + HOME переключает STEP между DRONE и POLY. Во время работы STEP можно менять октаву живой POLY-игры — высота секвенции останется записанной.">SEQ + HOME switches STEP between DRONE and POLY. You may change the live POLY octave while STEP runs; the sequence keeps its recorded pitch.</p></article>
+        <article><b data-en="PATTERN CHAINS" data-ru="ЦЕПОЧКИ ПАТТЕРНОВ">PATTERN CHAINS</b><p data-en="Hold SEQ and press black pattern keys in the desired order. The new chain replaces the old one, loops continuously and follows the active pattern on-screen." data-ru="Удерживайте SEQ и нажмите чёрные клавиши паттернов в нужном порядке. Новая цепочка заменит старую, будет циклически повторяться и показывать активный паттерн на экране.">Hold SEQ and press black pattern keys in the desired order. The new chain replaces the old one, loops continuously and follows the active pattern on-screen.</p></article>
+        <article><b data-en="SAVE THE BANK" data-ru="СОХРАНИТЕ БАНК">SAVE THE BANK</b><p data-en="Hold SAVE while the STEP page is open to store the complete ten-pattern bank." data-ru="Удерживайте SAVE на странице STEP, чтобы сохранить весь банк из десяти паттернов.">Hold SAVE while the STEP page is open to store the complete ten-pattern bank.</p></article>
+      </div>
+      <aside class="step-footnote"><p data-en="With FREEZE + ARP/STEP + POLY active, you can create three layers of a musical idea." data-ru="При включённых FREEZE + ARP/STEP + POLY можно создать три слоя музыкальной идеи.">With FREEZE + ARP/STEP + POLY active, you can create three layers of a musical idea.</p></aside>
+    </section>
+
+    <section class="section disorder" id="disorder">
+      <div class="disorder-copy">
+        <p class="section-no">04 / SWARM</p>
+        <h2 data-en="Hold REC<br>Release the SWARM" data-ru="Удерживайте REC<br>Освободите РОЙ">Hold REC<br>Release the SWARM</h2>
+        <p data-en="Hold REC for more than 0.7 seconds to enter SWARM. While the button remains held, parameters follow independent smooth trajectories of roughly ten seconds, and one discrete switch changes every second." data-ru="Удерживайте REC дольше 0,7 секунды, чтобы включить SWARM. Пока кнопка нажата, параметры движутся по независимым плавным траекториям длительностью около десяти секунд, а один дискретный переключатель меняется каждую секунду.">Hold REC for more than 0.7 seconds to enter SWARM. While the button remains held, parameters follow independent smooth trajectories of roughly ten seconds, and one discrete switch changes every second.</p>
+        <p data-en="The interface becomes a full-screen cellular field that reacts to the output level. Release REC to return to the interface. Press SAVE + REC to undo the latest SWARM session." data-ru="Интерфейс превращается в полноэкранное клеточное поле, реагирующее на уровень выходного сигнала. Отпустите REC, чтобы вернуться к интерфейсу. Нажмите SAVE + REC, чтобы отменить последний сеанс SWARM.">The interface becomes a full-screen cellular field that reacts to the output level. Release REC to return to the interface. Press SAVE + REC to undo the latest SWARM session.</p>
+        <div class="disorder-steps"><b>REC &gt; 0.7 s</b><span aria-hidden="true">•</span><b data-en="RELEASE = RETURN" data-ru="ОТПУСТИТЬ = ВЕРНУТЬСЯ">RELEASE = RETURN</b><span aria-hidden="true">•</span><b>SAVE + REC = UNDO</b></div>
+      </div>
+      <div class="disorder-demo">
+        <canvas id="disorder-canvas" width="480" height="480" aria-label="Animated SWARM cellular field"></canvas>
+        <span data-en="LIVE CELLULAR FIELD" data-ru="ЖИВОЕ КЛЕТОЧНОЕ ПОЛЕ">LIVE CELLULAR FIELD</span>
+      </div>
+    </section>
+
+    <section class="section emulator" id="play">
+      <div class="emulator-heading">
+        <div><p class="section-no">05 / EMULATOR</p><h2 data-en="Play before installing" data-ru="Играйте до установки">Play before installing</h2></div>
+        <p data-en="The browser emulator runs the unchanged ARTIHIVE firmware package with its screen, controls and sound." data-ru="Браузерный эмулятор запускает неизменённый пакет ARTIHIVE вместе с экраном, управлением и звуком.">The browser emulator runs the unchanged ARTIHIVE firmware package with its screen, controls and sound.</p>
+      </div>
+      <div class="emulator-layout">
+        <div class="emulator-embed">
+          <div class="emulator-bar"><b>FM1-EMU / ARTIHIVE</b><span>FIRMWARE 2.0.4</span></div>
+          <iframe src="https://joakimeriksson.github.io/fm1-emu/?package=https%3A%2F%2Fkhavld.github.io%2FARTIHIVE%2Fassets%2Fdownloads%2Fartihive-2.0.4.fwsc&amp;name=ARTIHIVE%202.0.4&amp;embed=1" title="ARTIHIVE browser emulator" loading="eager" allow="autoplay; midi" referrerpolicy="no-referrer"></iframe>
+          <a href="https://joakimeriksson.github.io/fm1-emu/?package=https%3A%2F%2Fkhavld.github.io%2FARTIHIVE%2Fassets%2Fdownloads%2Fartihive-2.0.4.fwsc&amp;name=ARTIHIVE%202.0.4" target="_blank" rel="noopener"><span data-en="OPEN IN A SEPARATE WINDOW" data-ru="ОТКРЫТЬ В ОТДЕЛЬНОМ ОКНЕ">OPEN IN A SEPARATE WINDOW</span> ↗</a>
+        </div>
+        <div class="emulator-notes">
+          <article class="emulator-warning"><b data-en="NO SOUND?" data-ru="НЕТ ЗВУКА?">NO SOUND?</b><span data-en="ARTIHIVE remains completely silent until PLAY is pressed. Click PLAY on the virtual panel before testing the sound." data-ru="ARTIHIVE сохраняет полную тишину до нажатия PLAY. Перед проверкой звука нажмите PLAY на виртуальной панели.">ARTIHIVE remains completely silent until PLAY is pressed. Click PLAY on the virtual panel before testing the sound.</span></article>
+          <article><b>SOUND</b><span data-en="The firmware DSP runs directly in WebAssembly." data-ru="DSP прошивки работает непосредственно в WebAssembly.">The firmware DSP runs directly in WebAssembly.</span></article>
+          <article><b>CONTROL</b><span data-en="Use the virtual panel or your computer keyboard." data-ru="Используйте виртуальную панель или клавиатуру компьютера.">Use the virtual panel or your computer keyboard.</span></article>
+          <article><b>UPDATE</b><span data-en="If an older build opens, select “Check for firmware updates”." data-ru="Если открылась старая сборка, выберите «Check for firmware updates».">If an older build opens, select “Check for firmware updates”.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo" id="demo">
+      <div class="section-head"><div><p class="section-no">06 / DEMO</p><h2 data-en="Improvisational&amp;nbsp;&amp;nbsp;&lt;span&gt;demonstration.&lt;/span&gt;" data-ru="Импровизационная&amp;nbsp;&amp;nbsp;&lt;span&gt;демонстрация.&lt;/span&gt;">Improvisational&nbsp;&nbsp;<span>demonstration.</span></h2></div></div>
+      <div class="demo-grid">
+        <figure class="demo-video">
+          <video controls playsinline preload="metadata"><source src="https://github.com/KHAVld/ARTIHIVE/raw/refs/heads/ARTIHIVE/docs/1demo.mp4" type="video/mp4"></video>
+          <figcaption>DEMO 01</figcaption>
+        </figure>
+        <figure class="demo-video">
+          <video controls playsinline preload="metadata"><source src="https://github.com/KHAVld/ARTIHIVE/raw/refs/heads/ARTIHIVE/docs/2demo.mp4" type="video/mp4"></video>
+          <figcaption>DEMO 02</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <div class="section-head"><div><p class="section-no">07 / DOCUMENTATION</p><h2 data-en="Read deeper" data-ru="Подробнее:">Read deeper</h2></div></div>
+      <div class="docs-grid">
+        <a href="assets/downloads/artihive-2.0.4-manual-en.pdf" target="_blank"><span>PDF · EN · 2.0.4</span><b>ARTIHIVE Manual</b><i>Release manual ↗</i></a>
+        <a href="assets/downloads/artihive-2.0.4-manual-ru.pdf" target="_blank"><span>PDF · RU · 2.0.4</span><b>Руководство ARTIHIVE</b><i>Релизное руководство ↗</i></a>
+        <a href="https://github.com/KHAVld/ARTIHIVE/releases/tag/artihive-2.0.4" target="_blank" rel="noopener"><span>GITHUB</span><b>Release 2.0.4</b><i>Source & assets ↗</i></a>
+        <a href="https://github.com/KHAVld/ARTIHIVE" target="_blank" rel="noopener"><span>GPL-3.0</span><b>Source code</b><i>View repository ↗</i></a>
+      </div>
+    </section>
+
+    <section class="section install-v2" id="install">
+      <div class="install-v2-head">
+        <p class="section-no">08 / INSTALL</p>
+        <h2 data-en="Install with<br>extra care!" data-ru="Устанавливайте<br>с осторожностью!">Install with<br>extra care!</h2>
+      </div>
+      <div class="install-warning">
+        <b data-en="HARDWARE TESTING NOTICE" data-ru="ПРЕДУПРЕЖДЕНИЕ О ПРОВЕРКЕ">HARDWARE TESTING NOTICE</b>
+        <p data-en="ARTIHIVE 2.0.4 has successfully started on physical FM-1 hardware. The local browser installer remains experimental, so The Firmware Hub is still the recommended public installation method." data-ru="ARTIHIVE 2.0.4 успешно запустилась на физическом FM-1. Локальный браузерный установщик остаётся экспериментальным, поэтому для публичной установки по-прежнему рекомендуется The Firmware Hub.">ARTIHIVE 2.0.4 has successfully started on physical FM-1 hardware. The local browser installer remains experimental, so The Firmware Hub is still the recommended public installation method.</p>
+      </div>
+      <div class="install-v2-actions">
+        <a class="hub-install" href="https://thefirmwarehub.com/#fw-artihive" target="_blank" rel="noopener"><strong data-en="INSTALL VIA THE FIRMWARE HUB" data-ru="УСТАНОВИТЬ ЧЕРЕЗ THE FIRMWARE HUB">INSTALL VIA THE FIRMWARE HUB</strong><span data-en="Recommended method ↗" data-ru="Рекомендуемый способ ↗">Recommended method ↗</span></a>
+        <a class="local-install" href="install.html?v=2"><strong data-en="EXPERIMENTAL INSTALLER" data-ru="ЭКСПЕРИМЕНТАЛЬНЫЙ УСТАНОВЩИК">EXPERIMENTAL INSTALLER</strong><span data-en="Open at your own risk →" data-ru="Открыть на свой риск →">Open at your own risk →</span></a>
+      </div>
+    </section>
+
+    <section class="section continuation" id="continuation">
+      <p class="section-no">09 / AFTERWORD</p>
+      <div class="continuation-grid">
+        <div class="continuation-title">
+          <h2 data-en="Thank you for becoming<br>part of the swarm!" data-ru="Спасибо, что стали<br>частью роя!">Thank you for becoming<br>part of the swarm!</h2>
+          <span>— KHAV · 2026</span>
+        </div>
+        <div class="continuation-letter">
+          <p data-en="Thank you to everyone who has installed ARTIHIVE, played it and allowed this digital artifact to exist beyond my own device." data-ru="Спасибо всем, кто установил ARTIHIVE, играл на нём и позволил этому цифровому артефакту существовать за пределами моего собственного устройства.">Thank you to everyone who has installed ARTIHIVE, played it and allowed this digital artifact to exist beyond my own device.</p>
+          <p data-en="ARTIHIVE is constantly changing. I continue to revise its sound, behavior and interface as I learn what the instrument can become. Version 2.0.4 is the current stable release, adding STEP, SWARM and a more precise sequencer transport while preserving the instrument’s eight-voice character." data-ru="ARTIHIVE постоянно меняется. Я продолжаю дорабатывать его звук, поведение и интерфейс, постепенно понимая, каким может стать этот инструмент. Версия 2.0.4 — текущий стабильный релиз: в нём появились STEP, SWARM и более точный транспорт секвенсора при сохранении восьмиголосного характера инструмента.">ARTIHIVE is constantly changing. I continue to revise its sound, behavior and interface as I learn what the instrument can become. Version 2.0.4 is the current stable release, adding STEP, SWARM and a more precise sequencer transport while preserving the instrument’s eight-voice character.</p>
+          <p data-en="Not every function has been fully tested yet. MIDI CC behavior is one of the areas that still needs broader hardware testing. I will keep working on ARTIHIVE, correcting it and expanding this instrument." data-ru="Пока протестированы не все функции. Например, работа MIDI CC всё ещё требует более широкой проверки на реальном оборудовании. Я продолжу работать над ARTIHIVE, исправлять его и развивать этот инструмент.">Not every function has been fully tested yet. MIDI CC behavior is one of the areas that still needs broader hardware testing. I will keep working on ARTIHIVE, correcting it and expanding this instrument.</p>
+        </div>
+      </div>
+      <div class="continuation-status">
+        <div><b>2.0.4</b><span data-en="CURRENT STABLE RELEASE" data-ru="ТЕКУЩАЯ СТАБИЛЬНАЯ ВЕРСИЯ">CURRENT STABLE RELEASE</span></div>
+        <div><b data-en="ONGOING" data-ru="В РАБОТЕ">ONGOING</b><span data-en="SOUND · BEHAVIOR · INTERFACE" data-ru="ЗВУК · ПОВЕДЕНИЕ · ИНТЕРФЕЙС">SOUND · BEHAVIOR · INTERFACE</span></div>
+        <div><b data-en="TESTING" data-ru="ПРОВЕРКА">TESTING</b><span>MIDI CC · HARDWARE</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer><div class="brand"><span>ARTIHIVE</span></div><p>Created by KHAV · 2026</p><p data-en="Independent community firmware." data-ru="Независимая пользовательская прошивка.">Independent community firmware.</p></footer>
+  <script src="app.js?v=204-theme-map-fix"></script>
+</body>
+</html>
