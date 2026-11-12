@@ -582,7 +582,18 @@ html[data-site-theme] .demo-video:last-child figcaption{
   color:#1a8bd7!important;
 }
 
-/* Responsive heading correction for sections 02 and 06. */
+/* Heading correction for sections 02 and 06.
+   The page has a fixed maximum content width, so vw-based type could become
+   wider than the page on large desktop windows. Cap these headings by the
+   content width, not only by the browser viewport. */
+#instrument .section-head h2{
+  max-width:100%;
+  font-size:clamp(16px,3.8vw,36px);
+}
+.demo .section-head h2{
+  max-width:100%;
+  font-size:clamp(16px,4.8vw,40px);
+}
 @media(max-width:760px){
   #instrument .section-head h2{
     white-space:normal;
