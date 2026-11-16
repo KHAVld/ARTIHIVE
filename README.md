@@ -108,3 +108,5 @@ Artistically inspired by the experimental sound philosophy and hands-on approach
 ## License
 
 ARTIHIVE is distributed under the **GNU General Public License v3.0 only**. See `LICENSE` for the full terms.
+
+You can also try ARTIHIVE in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
