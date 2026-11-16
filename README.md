@@ -83,17 +83,6 @@ The final ARTIHIVE 2.0.0 firmware has successfully started on a physical FM-1. T
 - Target: M-VAVE FM-1 / JieLi AC791N
 - License: GPL-3.0-only
 
-## Release files
-
-- `artihive-2.0.0.fwsc` — ready-to-install firmware.
-- `artihive-2.0.0-src.tar.gz` — corresponding source archive.
-- `artihive-manual-en.pdf` — English manual.
-- `artihive-manual-ru.pdf` — Russian manual.
-- `install.html` — self-contained offline WebMIDI installer.
-- `RELEASE_NOTES.md` — concise release summary.
-- `SHA256SUMS` — integrity hashes for all release files.
-- `LICENSE` — GNU General Public License version 3.
-
 ## Verification
 
 The release passed host integration tests, DSP tests, POLY allocation and envelope tests, MIDI and arpeggiator tests, update-loader and package checks, ASan/UBSan runs, target resource checks and a clean reproducible firmware rebuild.
