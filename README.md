@@ -20,6 +20,9 @@ This behaviour has been removed in ARTIHIVE 2.0.2. Users of version 2.0.1 are st
 
 > **Please note:** This firmware has received only limited testing on physical FM-1 hardware. Automated tests, package verification and host-based stress tests have passed, but not every function, hardware revision, preset combination or long-duration operating condition has been tested on the device. Use it carefully, keep a copy of the previous working firmware, and make sure you have access to the recovery procedure before installing.
 
+## FM-1 Emulator by keril (https://github.com/kkeril)
+
+You can also try ARTIHIVE in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
 
 # ARTIHIVE
 
@@ -110,6 +113,3 @@ Artistically inspired by the experimental sound philosophy and hands-on approach
 
 ARTIHIVE is distributed under the **GNU General Public License v3.0 only**. See `LICENSE` for the full terms.
 
-## FM-1 Emulator by keril (https://github.com/kkeril)
-
-You can also try ARTIHIVE in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
