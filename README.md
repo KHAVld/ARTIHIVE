@@ -105,8 +105,11 @@ sha256sum -c SHA256SUMS
 ARTIHIVE was created by KHAV with development, documentation, testing, and release-preparation assistance from Arena.ai Agent Mode.
 
 Artistically inspired by the experimental sound philosophy and hands-on approach of the SOMA Laboratory LYRA-8. ARTIHIVE is an independent project and is not affiliated with or endorsed by SOMA Laboratory. No SOMA software, firmware, schematics, branding, or other proprietary materials are used.
+
 ## License
 
 ARTIHIVE is distributed under the **GNU General Public License v3.0 only**. See `LICENSE` for the full terms.
+
+## FM-1 Emulator by keril
 
 You can also try ARTIHIVE in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
