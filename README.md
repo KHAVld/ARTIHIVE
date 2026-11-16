@@ -5,7 +5,9 @@
 <img width="240" height="240" alt="output" src="https://github.com/user-attachments/assets/1280812a-6d5b-4a09-8372-82eee119425c" />
 <img width="240" height="240" alt="out-comp" src="https://github.com/user-attachments/assets/8172a7e6-4234-476d-a7f9-12f1b5ed7ba2" />
 <img width="240" height="240" alt="fm-route" src="https://github.com/user-attachments/assets/1bb9cd30-3c31-4fab-ac5f-c3bf5b41c6f2" />
+
 https://khavld.github.io/ARTIHIVE/
+
 ## Hardware testing notice
 
 > **Please note:** This firmware has received only limited testing on physical FM-1 hardware. Automated tests, package verification and host-based stress tests have passed, but not every function, hardware revision, preset combination or long-duration operating condition has been tested on the device. Use it carefully, keep a copy of the previous working firmware, and make sure you have access to the recovery procedure before installing.
