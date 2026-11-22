@@ -1,10 +1,5 @@
 <img width="1456" height="720" alt="artihive-logo-640x320-byKHAV" src="https://github.com/user-attachments/assets/35a2a57f-775d-4690-bc15-717b30609ded" />
-<img width="240" height="240" alt="drone" src="https://github.com/user-attachments/assets/26d97bfd-9c01-470f-84ce-f4ef8ce3e419" />
-<img width="240" height="240" alt="artihive-arpeggio-user-16-steps-240x240" src="https://github.com/user-attachments/assets/8e88d442-c40d-4900-ae34-67ad706f07d0" />
-<img width="240" height="240" alt="hyper-lfo" src="https://github.com/user-attachments/assets/4ab6cf19-9aab-4890-84de-9bf41d1c47c3" />
-<img width="240" height="240" alt="output" src="https://github.com/user-attachments/assets/1280812a-6d5b-4a09-8372-82eee119425c" />
-<img width="240" height="240" alt="out-comp" src="https://github.com/user-attachments/assets/8172a7e6-4234-476d-a7f9-12f1b5ed7ba2" />
-<img width="240" height="240" alt="fm-route" src="https://github.com/user-attachments/assets/1bb9cd30-3c31-4fab-ac5f-c3bf5b41c6f2" />
+
 
 
 ## Hardware testing notice
