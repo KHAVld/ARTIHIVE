@@ -301,7 +301,8 @@ h2,h3,p,li { color:var(--fw-white); }
 .emulator-notes .emulator-warning{background:#fff0f2;color:var(--fw-black)}.emulator-notes .emulator-warning b{color:#a00026}.emulator-notes .emulator-warning span{color:var(--fw-black);font-weight:700}
 .emulator-notes .emulator-warning{background:var(--fw-black);color:var(--fw-white);border:3px solid #d21f45}.emulator-notes .emulator-warning b{color:#ff405f}.emulator-notes .emulator-warning span{color:var(--fw-white)}
 /* 06 / INSTALL */
-.install-v2{background:#281019!important}.install-v2-head{margin-bottom:38px}.install-warning{padding:26px;border:3px solid #d21f45;background:var(--fw-black);max-width:900px}.install-warning b{color:#ff405f;font:700 21px/1 var(--font-pixel)}.install-warning p{margin:16px 0 0;color:var(--fw-white);font-size:19px;line-height:1.45}.install-v2-actions{display:grid;grid-template-columns:1.35fr .65fr;gap:14px;margin-top:28px}.install-v2-actions a{display:flex;flex-direction:column;justify-content:space-between;min-height:150px;padding:24px;text-decoration:none;border:3px solid var(--fw-white)}.install-v2-actions strong{font:700 clamp(22px,3vw,38px)/.9 var(--font-pixel)}.install-v2-actions span{margin-top:24px;font:400 15px/1 var(--font-pixel)}.hub-install{color:var(--fw-black);background:var(--fw-white)}.hub-install:hover{background:var(--fw-light)}.local-install{color:var(--fw-white);background:#57172f}.local-install:hover{background:#711f3e}@media(max-width:760px){.install-v2-actions{grid-template-columns:1fr}.install-v2-actions a{min-height:130px}}
+.install-v2{background:#281019!important}.install-v2-head{margin-bottom:38px}.install-warning{padding:26px;border:3px solid #d21f45;background:var(--fw-black);max-width:900px}.install-warning b{color:#ff405f;font:700 21px/1 var(--font-pixel)}.install-warning p{margin:16px 0 0;color:var(--fw-white);font-size:19px;line-height:1.45}.install-v2-actions{display:grid;grid-template-columns:1.35fr .65fr;gap:14px;margin-top:28px}.install-v2-actions a{display:flex;flex-direction:column;justify-content:space-between;min-height:150px;padding:24px;text-decoration:none;border:3px solid var(--fw-white)}.install-v2-actions strong{font:700 clamp(22px,3vw,38px)/.9 var(--font-pixel)}.install-v2-actions span{margin-top:24px;font:400 15px/1 var(--font-pixel)}.hub-install{color:var(--fw-black);background:var(--fw-white)}.hub-install,.hub-install strong,.hub-install span{color:#000!important}.hub-install:hover{background:var(--fw-light)}.local-install{color:var(--fw-white);background:#57172f}.local-install:hover{background:#711f3e}@media(max-width:760px){.install-v2-actions{grid-template-columns:1fr}.install-v2-actions a{min-height:130px}}
+.install-release-head{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:end}.install-release-head>p{margin:0 0 8px;font-size:20px;line-height:1.55}.install-release-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;background:var(--fw-white);border:2px solid var(--fw-white)}.install-release-steps article{display:grid;grid-template-columns:auto 1fr;align-content:start;column-gap:18px;min-height:245px;padding:24px;background:#57172f}.install-release-steps span{grid-row:1/3;color:var(--fw-light);font:700 34px/1 var(--font-pixel)}.install-release-steps b{font:700 19px/1.1 var(--font-pixel)}.install-release-steps p{grid-column:2;margin:18px 0 0;line-height:1.5}.install-release-note{display:grid;grid-template-columns:.4fr 1fr;gap:32px;align-items:center;margin-top:18px;padding:22px 24px;border:2px solid var(--fw-white);background:var(--fw-black)}.install-release-note b{color:var(--fw-light);font:700 20px/1 var(--font-pixel)}.install-release-note p{margin:0;line-height:1.45}@media(max-width:800px){.install-release-head,.install-release-note{grid-template-columns:1fr;gap:24px}.install-release-steps{grid-template-columns:1fr}.install-release-steps article{min-height:180px}}
 /* Opening screen uses the same BLUSH VEIN field colour as the other sections. */
 .hero.hero-simple{background:#6f1e3d;border-bottom:2px solid var(--fw-white)}
 /* 07 / CONTINUATION */
@@ -331,7 +332,12 @@ html[data-site-theme] .continuation{background:var(--theme-bg)!important;border-
 html[data-site-theme] .facts div,
 html[data-site-theme] .feature-stack article,
 html[data-site-theme] .emulator-notes article,
-html[data-site-theme] .continuation-status div{background:var(--theme-a)}
+html[data-site-theme] .continuation-status div,
+html[data-site-theme] .install-release-steps article,
+html[data-site-theme] .local-install{background:var(--theme-a)}
+html[data-site-theme] .local-install,
+html[data-site-theme] .local-install strong,
+html[data-site-theme] .local-install span{color:var(--theme-e)!important}
 html[data-site-theme] .theme-instruction,
 html[data-site-theme] .lead{background:var(--theme-a)}
 html[data-site-theme] .button,
@@ -469,6 +475,16 @@ html[data-site-theme] .emulator-notes .emulator-warning b{
   color:#ff405f!important;
   text-shadow:2px 2px 0 #101216!important;
 }
+
+/* 01 / SIGNAL — always a pure black page, independent of the selected colourway. */
+.manifesto,
+html[data-site-theme] .manifesto{
+  background:#000!important;
+}
+
+/* 01 / SIGNAL — ARTIHIVE follows the active firmware colourway. */
+.manifesto blockquote .signal-artihive{color:var(--fw-pink)!important}
+html[data-site-theme] .manifesto blockquote .signal-artihive{color:var(--theme-b)!important}
 
 /* 01 / SIGNAL — black keyline around every letter of the main statement. */
 .manifesto blockquote{
@@ -626,4 +642,17 @@ html[data-site-theme] .demo-video:last-child figcaption{
     display:block;
     grid-column:1;
   }
+}
+
+/* 08 / INSTALL — the white Firmware Hub action always uses solid black ink. */
+.install-v2-actions a.hub-install,
+.install-v2-actions a.hub-install strong,
+.install-v2-actions a.hub-install span,
+html[data-site-theme] .install-v2-actions a.hub-install,
+html[data-site-theme] .install-v2-actions a.hub-install strong,
+html[data-site-theme] .install-v2-actions a.hub-install span{
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+  text-shadow:none!important;
+  opacity:1!important;
 }
