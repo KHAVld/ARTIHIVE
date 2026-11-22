@@ -3,9 +3,6 @@
 
 
 
-## FM-1 Emulator by keril (https://github.com/kkeril)
-
-You can also try ARTIHIVE in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
 
 # ARTIHIVE
 
