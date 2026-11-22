@@ -2,9 +2,6 @@
 
 
 
-## Hardware testing notice
-
-> **Please note:** This firmware has received only limited testing on physical FM-1 hardware. Automated tests, package verification and host-based stress tests have passed, but not every function, hardware revision, preset combination or long-duration operating condition has been tested on the device. Use it carefully, keep a copy of the previous working firmware, and make sure you have access to the recovery procedure before installing.
 
 ## FM-1 Emulator by keril (https://github.com/kkeril)
 
