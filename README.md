@@ -23,7 +23,7 @@ ARTIHIVE is an experimental eight-voice drone and polyphonic synthesizer firmwar
 - Hyper LFO with linked operators and stereo SPACE movement.
 - Dual modulated delay with LFO and self-modulation sources.
 - Output distortion and lightweight stereo-linked compression.
-- ARPEGGIO with exact 10–400 BPM, multiple traversal orders and programmable USER steps.
+- ARPEGGIO with exact 30–300 BPM, multiple traversal orders and programmable USER steps.
 - Context-sensitive mutation with one-level undo.
 - Sixteen factory presets and eight user slots.
 - Twelve visual themes with high-contrast text and logo outlines on textured backgrounds.
