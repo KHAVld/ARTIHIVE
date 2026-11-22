@@ -55,13 +55,10 @@ POLY intentionally has no drones, latches, PLAY drones or HOLD floor. Note level
 
 
 
-## Physical-device status
-
-The final ARTIHIVE 2.0.0 firmware has successfully started on a physical FM-1. This confirms real-device startup, but is not presented as a complete long-duration test of every function or every FM-1 hardware revision.
 
 ## Package identity
 
-- Firmware version: `2.0.0`
+- Firmware version: `2.0.5`
 - Package identity: `FM-1_9620`
 - Target: M-VAVE FM-1 / JieLi AC791N
 - License: GPL-3.0-only
