@@ -55,7 +55,7 @@ POLY intentionally has no drones, latches, PLAY drones or HOLD floor. Note level
 
 ## Package identity
 
-- Firmware version: `2.0.5`
+- Firmware version: `2.0.6`
 - Package identity: `FM-1_9620`
 - Target: M-VAVE FM-1 / JieLi AC791N
 - License: GPL-3.0-only
